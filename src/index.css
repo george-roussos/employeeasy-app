@@ -1,13 +1,102 @@
+html,
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app {
+  display: flex;
+}
+
+#link {
+  text-decoration: none;
+  color: rgb(46, 46, 46);
+}
+
+/* ----- Dropdown Menu ----- */
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* ----- Nav ------ */
+
+nav {
+  height: 100vh;
+  background-color: rgb(57, 57, 108);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 170px;
+}
+
+nav .logo-container,
+nav .controls-container {
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+nav .logo-container img {
+  width: 120px;
+}
+
+nav .dashboard-container {
+  position: absolute;
+  top: 110px;
+  display: flex;
+  gap: 14px;
+  margin-left: 15px;
+  align-items: center;
+}
+
+nav .employee-container {
+  position: absolute;
+  top: 150px;
+  display: flex;
+  gap: 14px;
+  margin-left: 15px;
+  align-items: center;
+}
+
+nav .dashboard-router {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+nav .icon {
+  color: rgb(255, 255, 255);
+}
+
+nav .account-container {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  gap: 14px;
+  margin-left: 15px;
+}
+
+nav .account-container img {
+  width: 40px;
+  border-radius: 25px;
+}
+
+nav .menu-btn {
+  background: none;
+  color: rgb(255, 255, 255);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
