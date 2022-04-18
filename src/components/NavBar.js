@@ -4,7 +4,8 @@ import blank from "../images/blank-profile.png";
 import {
   IoChevronUp,
   IoNewspaperOutline,
-  IoPersonAddOutline,
+  IoPeopleCircleOutline,
+  IoPersonOutline,
 } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { Menu, MenuItem } from "@szhsin/react-menu";
@@ -19,17 +20,26 @@ const NavBar = () => {
       <div className="logo-container" onClick={() => navigate("/")}>
         <img src={logo} alt="logo" />
       </div>
-      <div className="dashboard-container">
-        <IoNewspaperOutline />
-        <Link to="/" className="dashboard-router">
-          Dashboard
-        </Link>
-      </div>
-      <div className="employee-container">
-        <IoPersonAddOutline />
-        <Link to="/employee" className="dashboard-router">
-          Add Employee
-        </Link>
+      <div className="links">
+        <div className="dashboard-link">
+          <IoNewspaperOutline />
+          <Link to="/" className="dashboard-router">
+            Dashboard
+          </Link>
+        </div>
+        <span className="people-divider">People</span>
+        <div className="employee-link">
+          <IoPersonOutline />
+          <Link to="/employees" className="dashboard-router">
+            Employees
+          </Link>
+        </div>
+        <div className="team-link">
+          <IoPeopleCircleOutline />
+          <Link to="/employees" className="dashboard-router">
+            Team
+          </Link>
+        </div>
       </div>
       <div className="account-container">
         <img src={blank} alt={"photo of user"} />

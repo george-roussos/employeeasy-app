@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 .app {
@@ -12,6 +12,10 @@ body {
 #link {
   text-decoration: none;
   color: rgb(46, 46, 46);
+}
+
+a:visited {
+  color: rgb(253, 253, 253);
 }
 
 /* ----- Dropdown Menu ----- */
@@ -31,12 +35,11 @@ a {
 
 nav {
   height: 100vh;
-  background-color: rgb(57, 57, 108);
+  background-color: rgb(63, 63, 156);
   color: rgb(255, 255, 255);
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 170px;
 }
 
@@ -51,28 +54,65 @@ nav .logo-container img {
   width: 120px;
 }
 
-nav .dashboard-container {
-  position: absolute;
-  top: 110px;
+.links {
   display: flex;
-  gap: 14px;
-  margin-left: 15px;
   align-items: center;
+  flex-direction: column;
+  gap: 15px;
 }
 
-nav .employee-container {
-  position: absolute;
-  top: 150px;
+.people-divider {
   display: flex;
-  gap: 14px;
-  margin-left: 15px;
-  align-items: center;
+  margin-right: 7rem;
+  margin-top: 1rem;
+  color: rgb(222, 219, 219);
+  text-transform: uppercase;
+  font-size: 11px;
 }
 
-nav .dashboard-router {
+.dashboard-link {
+  display: flex;
+  margin-top: 1rem;
+  gap: 10px;
+  margin-right: 3rem;
+  padding: 0.5em 4rem;
+  transition: 0.3s;
+}
+
+.employee-link {
+  display: flex;
+  gap: 10px;
+  margin-right: 3rem;
+  padding: 0.5em 4rem;
+  transition: 0.3s;
+}
+
+.team-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 5.5rem;
+  padding: 0.5rem 6rem;
+  transition: 0.3s;
+}
+
+.account-container {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.dashboard-link:hover,
+.employee-link:hover,
+.team-link:hover {
+  background-color: rgb(72, 72, 183);
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+}
+
+/* nav .dashboard-router {
   text-decoration: none;
   color: rgb(255, 255, 255);
-}
+} */
 
 nav .icon {
   color: rgb(255, 255, 255);
@@ -99,4 +139,45 @@ nav .menu-btn {
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+/* .people-divider {
+  text-transform: uppercase;
+  color: rgb(212, 211, 211);
+  font-size: 11px;
+  display: flex;
+  margin-left: 17px;
+  height: 230px;
+} */
+
+/* ----- Dashboard ----- */
+
+.dashboard {
+  background-color: rgb(244, 242, 242);
+  flex: 1 0 10%;
+}
+
+table img {
+  display: flex;
+  align-items: center;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.dashboard table img,
+.employee-name {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard .m-0 {
+  font-size: 20px;
+}
+
+.table-container {
+  margin: auto;
+  width: 90%;
+  padding: 20px 20px;
+  background-color: white;
+  border-radius: 13px;
 }
