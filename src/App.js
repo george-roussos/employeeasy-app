@@ -7,6 +7,10 @@ import Team from "./components/Team/Team";
 import employeeService from "./services/employees";
 import userService from "./services/users";
 import loginService from "./services/login";
+import { useDispatch, useSelector } from "react-redux";
+import { setEmployees } from "./reducers/employeesReducer";
+import { setUser, setUsername, setPassword } from "./reducers/userReducer";
+import LoginForm from "./components/LoginForm/LoginForm";
 
 // const employees = [
 //   {
@@ -60,25 +64,75 @@ import loginService from "./services/login";
 // ];
 
 const App = () => {
-  const [user, setUser] = useState(null);
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [employees, setEmployees] = useState([]);
+  const user = useSelector((state) => state.user.user);
+  const username = useSelector((state) => state.user.username);
+  const password = useSelector((state) => state.user.password);
+
+  const dispatch = useDispatch();
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    try {
+      const user = await loginService.login({
+        username,
+        password,
+      });
+      console.log(user);
+      window.localStorage.setItem(
+        "loggedEmployeeasyUser",
+        JSON.stringify(user)
+      );
+      employeeService.setToken(user.accessToken);
+      dispatch(setUser(user));
+      dispatch(setUsername(user.username));
+      dispatch(setPassword(""));
+    } catch (exception) {
+      console.log(exception);
+    }
+  };
+
+  const handleLogOut = () => {
+    window.localStorage.clear();
+    dispatch(setUser(null));
+  };
+
+  const employees = useSelector((state) => state.employees);
 
   useEffect(() => {
-    if (user || !user) {
+    if (user) {
       employeeService
         .getAllEmployees()
-        .then((employees) => setEmployees(employees));
-    } else return null;
+        .then((employees) => dispatch(setEmployees(employees)));
+    } else return undefined;
   }, [user]);
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem("loggedEmployeeasyUser");
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON);
+      dispatch(setUser(user));
+      employeeService.setToken(user.accessToken);
+    }
+  }, []);
 
   return (
     <div className="app">
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route
+            path="/"
+            element={
+              <LoginForm
+                user={user}
+                username={username}
+                password={password}
+                handleLogin={handleLogin}
+              />
+            }
+          />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route
             path="/all-employees"
             element={<AllEmployees employees={employees} />}
