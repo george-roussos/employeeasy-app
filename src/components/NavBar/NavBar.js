@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import logo from "../images/logo.png";
-import blank from "../images/blank-profile.png";
+import logo from "../../images/logo.png";
+import blank from "../../images/blank-profile.png";
 import {
+  IoCalendarOutline,
   IoHomeOutline,
   IoDocumentsOutline,
   IoSettingsOutline,
@@ -10,13 +11,13 @@ import {
   IoNewspaperOutline,
   IoPeopleCircleOutline,
   IoPersonOutline,
-  IoSunnyOutline,
   IoHelpBuoyOutline,
 } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { Menu, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
+import "./NavBar.css";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -34,14 +35,14 @@ const NavBar = () => {
         <span className="people-divider">People</span>
         <div className="employee-link">
           <IoPersonOutline />
-          <Link to="/employees">Employees</Link>
+          <Link to="/all-employees">Employees</Link>
         </div>
         <div className="team-link">
           <IoPeopleCircleOutline />
-          <Link to="/employees">Team</Link>
+          <Link to="/my-team">Team</Link>
         </div>
         <div className="vacation-link">
-          <IoSunnyOutline />
+          <IoCalendarOutline />
           <Link to="/employees">Vacation</Link>
         </div>
         <div className="expenses-link">

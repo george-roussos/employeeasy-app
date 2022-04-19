@@ -1,0 +1,31 @@
+/* ----- Dashboard ----- */
+
+.dashboard {
+  background-color: rgb(244, 242, 242);
+  flex: 1 0 10%;
+}
+
+table img {
+  display: flex;
+  align-items: center;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.dashboard table img,
+.employee-name {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard .m-0 {
+  font-size: 20px;
+}
+
+.table-container {
+  margin: auto;
+  width: 90%;
+  padding: 20px 20px;
+  background-color: white;
+  border-radius: 13px;
+}

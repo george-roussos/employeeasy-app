@@ -1,0 +1,169 @@
+/* ----- Nav ------ */
+
+nav {
+  height: 100vh;
+  background-color: rgb(63, 63, 156);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+}
+
+nav .logo-container,
+nav .controls-container {
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+nav .logo-container img {
+  width: 120px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.people-divider,
+.company-divider {
+  display: flex;
+  margin-right: 7rem;
+  margin-top: 1rem;
+  color: rgb(222, 219, 219);
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.company-divider {
+  margin-right: 6.3rem !important;
+}
+
+.dashboard-link {
+  display: flex;
+  margin-top: 1rem;
+  gap: 10px;
+  margin-right: 3rem;
+  padding: 0.5em 4rem;
+  transition: 0.3s;
+}
+
+.employee-link {
+  display: flex;
+  gap: 10px;
+  margin-right: 3rem;
+  padding: 0.5em 4rem;
+  transition: 0.3s;
+}
+
+.team-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 5.5rem;
+  padding: 0.5rem 6rem;
+  transition: 0.3s;
+}
+
+.vacation-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 3.9rem;
+  padding: 0.5rem 6rem;
+  transition: 0.3s;
+}
+
+.expenses-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 3.4rem;
+  padding: 0.5rem 6rem;
+  transition: 0.3s;
+}
+
+.company-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 3.4rem;
+  padding: 0.5rem 6rem;
+  transition: 0.3s;
+}
+
+.documents-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 2.3rem;
+  padding: 0.5rem 6rem;
+  transition: 0.3s;
+}
+
+.settings-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 3.7rem;
+  padding: 0.5rem 6rem;
+  transition: 0.3s;
+}
+
+.help-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 5.4rem;
+  padding: 0.5rem 6rem;
+  transition: 0.3s;
+}
+
+.account-container {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.dashboard-link:hover,
+.employee-link:hover,
+.team-link:hover,
+.vacation-link:hover,
+.expenses-link:hover,
+.company-link:hover,
+.documents-link:hover,
+.settings-link:hover,
+.help-link:hover {
+  background-color: rgb(72, 72, 183);
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+}
+
+nav .icon {
+  color: rgb(255, 255, 255);
+}
+
+nav .account-container {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  gap: 14px;
+  margin-left: 15px;
+}
+
+nav .account-container img {
+  width: 40px;
+  border-radius: 25px;
+}
+
+nav .menu-btn {
+  background: none;
+  color: rgb(255, 255, 255);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
