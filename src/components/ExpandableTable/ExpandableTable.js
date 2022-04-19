@@ -144,8 +144,8 @@ const ExpandableTable = ({ employees }) => {
             body={countryBodyTemplate}
           />
           <Column field="department" header="Department" sortable />
-          <Column field="contractType" header="Contract" sortable />
-          <Column field="manager" header="Manager" sortable />
+          <Column field="employmentType" header="Contract" sortable />
+          <Column field="manager.name" header="Manager" sortable />
         </DataTable>
       </div>
     );
