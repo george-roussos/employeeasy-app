@@ -2,8 +2,14 @@ import React from "react";
 import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
 import "./DeleteModal.css";
+import axios from "axios";
+import employeeService from "../../../services/employees";
 
-const Modal = ({ open, children, onClose }) => {
+const Modal = ({ open, id, children, onClose }) => {
+  const handleDelete = (e) => {
+    console.log("employee id is", id);
+  };
+
   if (!open) return null;
   return createPortal(
     <>
@@ -33,7 +39,9 @@ const Modal = ({ open, children, onClose }) => {
             >
               Cancel
             </button>
-            <button id="delete-confirmBtn">Continue</button>
+            <button id="delete-confirmBtn" onClick={handleDelete}>
+              Continue
+            </button>
           </div>
         </div>
       </div>

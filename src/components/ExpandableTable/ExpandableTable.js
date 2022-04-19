@@ -19,6 +19,7 @@ const ExpandableTable = ({ employees }) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [editEmployeeModal, setEmployeeModal] = useState(false);
   const [message, setMessage] = useState("");
+  const [employeeId, setEmployeeId] = useState(null);
 
   const matches = !renderedEmployees
     ? employees
@@ -79,26 +80,6 @@ const ExpandableTable = ({ employees }) => {
           <span className="image-text">{employee}</span>
         </div>
       </React.Fragment>
-    );
-  };
-
-  const actionBodyTemplate = () => {
-    return (
-      <div style={{ display: "flex" }}>
-        <Button
-          icon="pi pi-user-edit"
-          className="mr-2"
-          onClick={() => {
-            setMessage("Edit Employee Information");
-            setEmployeeModal(true);
-          }}
-        />
-        <Button
-          icon="pi pi-trash"
-          className="p-button-danger"
-          onClick={() => setDeleteModal(true)}
-        />
-      </div>
     );
   };
 
@@ -186,12 +167,13 @@ const ExpandableTable = ({ employees }) => {
             expandedRows={expandedRows}
             onRowToggle={(e) => {
               setExpandedRows(e.data);
+              setEmployeeId(Object.keys(e.data)[0]);
             }}
             onRowExpand={onRowExpand}
             onRowCollapse={onRowCollapse}
             responsiveLayout="scroll"
             rowExpansionTemplate={rowExpansionTemplate}
-            dataKey="name"
+            dataKey="_id"
             header={header}
             emptyMessage="No data found"
             rows={10}
@@ -212,14 +194,34 @@ const ExpandableTable = ({ employees }) => {
             <Column field="phone" header="Phone" sortable></Column>
             <Column field="email" header="email" sortable></Column>
             <Column
-              headerStyle={{ width: "4rem", textAlign: "center" }}
-              bodyStyle={{ textAlign: "center", overflow: "visible" }}
-              body={actionBodyTemplate}
-            />
+              header="Actions"
+              body={(data, props) => (
+                <div style={{ display: "flex" }}>
+                  <Button
+                    icon="pi pi-user-edit"
+                    className="mr-2"
+                    onClick={() => {
+                      setMessage("Edit Employee Information");
+                      setEmployeeModal(true);
+                      setEmployeeId(props.props.value[props.rowIndex]._id);
+                    }}
+                  />
+                  <Button
+                    icon="pi pi-trash"
+                    className="p-button-danger"
+                    onClick={() => {
+                      setEmployeeId(props.props.value[props.rowIndex]._id);
+                      setDeleteModal(true);
+                    }}
+                  />
+                </div>
+              )}
+            ></Column>
           </DataTable>
           <DeleteModal
             open={deleteModal}
             onClose={() => setDeleteModal(false)}
+            id={employeeId}
           />
           <EmployeeModal
             open={editEmployeeModal}
