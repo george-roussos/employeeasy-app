@@ -74,28 +74,26 @@ const NavBar = ({ handleLogout }) => {
       <div className="account-container">
         <img src={user ? user.user.avatar : blank} alt={"photo of user"} />
         <p>{user ? user.user.name.split(" ")[0] : `User`}</p>
-
-        <Menu
-          menuButton={
-            <button className="menu-btn">
-              <IoChevronUp />
-            </button>
-          }
-          transition
-        >
-          {user
-            ? (<MenuItem>Account Settings</MenuItem>)(
-                <MenuItem
-                  onClick={() => {
-                    handleLogout();
-                    navigate("/");
-                  }}
-                >
-                  Logout
-                </MenuItem>
-              )
-            : null}
-        </Menu>
+        {user ? (
+          <Menu
+            menuButton={
+              <button className="menu-btn">
+                <IoChevronUp />
+              </button>
+            }
+            transition
+          >
+            <MenuItem>Account Settings</MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleLogout();
+                navigate("/");
+              }}
+            >
+              Logout
+            </MenuItem>
+          </Menu>
+        ) : null}
       </div>
     </nav>
   );
