@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   padding: 25px;
+  overflow: scroll;
 }
 
 .edit-modal--overlay {
@@ -15,11 +16,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  transition: 0.5s;
+  transition: 0.1s;
   display: flex;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(6px);
 }
 
 .title {

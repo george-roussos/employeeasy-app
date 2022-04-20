@@ -5,8 +5,9 @@ import { Toast } from "primereact/toast";
 import { useDispatch } from "react-redux";
 import "./DeleteModal.css";
 import { removeEmployee } from "../../../reducers/employeesReducer";
+import { CSSTransition } from "react-transition-group";
 
-const Modal = ({ open, id, children, onClose }) => {
+const Modal = ({ open, employee, children, onClose }) => {
   const toast = useRef(null);
   const dispatch = useDispatch();
 
@@ -35,7 +36,7 @@ const Modal = ({ open, id, children, onClose }) => {
   const handleDelete = async (event) => {
     event.preventDefault();
     try {
-      dispatch(removeEmployee(id));
+      dispatch(removeEmployee(employee._id));
       showSuccess();
     } catch (exception) {
       console.log(exception);
