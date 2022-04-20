@@ -47,7 +47,7 @@ nav .logo-container img {
   margin-top: 1rem;
   gap: 10px;
   margin-right: 3rem;
-  padding: 0.5em 4rem;
+  padding: 0.5em 3.4rem;
   transition: 0.3s;
 }
 
@@ -55,7 +55,7 @@ nav .logo-container img {
   display: flex;
   gap: 10px;
   margin-right: 3rem;
-  padding: 0.5em 4rem;
+  padding: 0.5em 3.4rem;
   transition: 0.3s;
 }
 
@@ -64,7 +64,7 @@ nav .logo-container img {
   gap: 10px;
   align-items: center;
   margin-right: 5.5rem;
-  padding: 0.5rem 6rem;
+  padding: 0.5rem 5.9rem;
   transition: 0.3s;
 }
 
@@ -73,7 +73,7 @@ nav .logo-container img {
   gap: 10px;
   align-items: center;
   margin-right: 3.9rem;
-  padding: 0.5rem 6rem;
+  padding: 0.5rem 4.4rem;
   transition: 0.3s;
 }
 
@@ -82,7 +82,7 @@ nav .logo-container img {
   gap: 10px;
   align-items: center;
   margin-right: 3.4rem;
-  padding: 0.5rem 6rem;
+  padding: 0.5rem 3.9rem;
   transition: 0.3s;
 }
 
@@ -91,7 +91,7 @@ nav .logo-container img {
   gap: 10px;
   align-items: center;
   margin-right: 3.4rem;
-  padding: 0.5rem 6rem;
+  padding: 0.5rem 3.9rem;
   transition: 0.3s;
 }
 
@@ -100,7 +100,7 @@ nav .logo-container img {
   gap: 10px;
   align-items: center;
   margin-right: 2.3rem;
-  padding: 0.5rem 6rem;
+  padding: 0.5rem 3rem;
   transition: 0.3s;
 }
 
@@ -109,7 +109,7 @@ nav .logo-container img {
   gap: 10px;
   align-items: center;
   margin-right: 3.7rem;
-  padding: 0.5rem 6rem;
+  padding: 0.5rem 4.4rem;
   transition: 0.3s;
 }
 
