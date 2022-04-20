@@ -1,13 +1,19 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
+import { useDispatch } from "react-redux";
 import "./DeleteModal.css";
-import axios from "axios";
-import employeeService from "../../../services/employees";
+import { removeEmployee } from "../../../reducers/employeesReducer";
 
 const Modal = ({ open, id, children, onClose }) => {
-  const handleDelete = (e) => {
-    console.log("employee id is", id);
+  const dispatch = useDispatch();
+  const handleDelete = async (event) => {
+    event.preventDefault();
+    try {
+      dispatch(removeEmployee(id));
+    } catch (exception) {
+      console.log(exception);
+    }
   };
 
   if (!open) return null;
