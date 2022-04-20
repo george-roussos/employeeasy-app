@@ -7,6 +7,7 @@ import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
 import { InputText } from "primereact/inputtext";
 import { IoAddOutline } from "react-icons/io5";
+import { ProgressSpinner } from "primereact/progressspinner";
 import { Toast } from "primereact/toast";
 const { flag } = require("country-emoji");
 
@@ -175,8 +176,8 @@ const ExpandableTable = ({ employees }) => {
             rowExpansionTemplate={rowExpansionTemplate}
             dataKey="_id"
             header={header}
-            emptyMessage="No data found"
-            rows={10}
+            emptyMessage={<ProgressSpinner />}
+            rows={4}
             paginator
             paginatorTemplate="FirstPageLink PreviousPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
             currentPageReportTemplate={`Showing {first} to {last} of ${matches.length} users`}
