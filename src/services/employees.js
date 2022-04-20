@@ -15,7 +15,7 @@ const getAllEmployees = () => {
   return request.then((response) => response.data.employees);
 };
 
-const createEmployee = (post) => {
+const create = (post) => {
   const config = {
     headers: { Authorization: token },
   };
@@ -23,7 +23,7 @@ const createEmployee = (post) => {
   return request.then((response) => response.data);
 };
 
-const removeEmployee = (id) => {
+const remove = (id) => {
   const config = {
     headers: { Authorization: token },
   };
@@ -31,4 +31,4 @@ const removeEmployee = (id) => {
   return request.then((response) => response.data);
 };
 
-export default { getAllEmployees, createEmployee, removeEmployee, setToken };
+export default { getAllEmployees, create, remove, setToken };
