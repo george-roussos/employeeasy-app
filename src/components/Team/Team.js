@@ -1,8 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "./Team.css";
 import ExpandableTable from "../ExpandableTable/ExpandableTable";
 
 const Team = ({ employees }) => {
+  const user = useSelector((state) => state.user.user);
+
   return (
     <div className="employees-info">
       <div className="titles">
@@ -11,7 +14,7 @@ const Team = ({ employees }) => {
       </div>
       <ExpandableTable
         employees={employees.filter(
-          (employee) => employee.manager === "Malin Holmgren"
+          (employee) => employee.manager.name === user.user.name
         )}
       />
     </div>
