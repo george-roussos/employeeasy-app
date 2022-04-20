@@ -1,0 +1,68 @@
+.login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.login-form form input,
+select {
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1.5px solid rgb(218, 218, 218);
+  margin: 10px;
+  flex: 100%;
+}
+
+.login-photo img {
+  width: 40em;
+  height: 30em;
+}
+
+label,
+input {
+  display: block;
+  width: 25rem;
+}
+
+input {
+  background-color: rgb(216, 233, 250);
+  border: none;
+}
+
+#login-button {
+  display: inline-block;
+  background-color: rgb(72, 72, 183);
+  color: #fff;
+  margin-top: 10px;
+
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.15);
+
+  /* Only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* Put transition on original "state" */
+  /* transition: background-color 0.3s; */
+  transition: all 0.3s;
+  width: 100%;
+}
+
+#login-button:hover,
+#login-button:active {
+  background-color: rgb(89, 89, 179);
+}
+
+.signup-message:hover {
+  text-decoration: underline;
+}
