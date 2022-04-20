@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import logo from "../../images/logo.png";
 import blank from "../../images/blank-profile.png";
 import {
