@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setEmployees } from "./reducers/employeesReducer";
 import { setUser, setUsername, setPassword } from "./reducers/userReducer";
 import LoginForm from "./components/LoginForm/LoginForm";
+import SignUp from "./components/SignUp/SignUp";
 
 const App = () => {
   const user = useSelector((state) => state.user.user);
@@ -76,8 +77,9 @@ const App = () => {
       <BrowserRouter>
         <NavBar handleLogout={handleLogOut} />
         <Routes>
+          <Route path="/signup" element={<SignUp />} />
           <Route
-            path="/"
+            path="/login"
             element={
               <LoginForm
                 user={user}
