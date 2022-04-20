@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import logo from "../../images/logo.png";
 import blank from "../../images/blank-profile.png";
 import {
@@ -19,8 +20,10 @@ import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import "./NavBar.css";
 
-const NavBar = () => {
+const NavBar = ({ handleLogout }) => {
   const navigate = useNavigate();
+
+  const user = useSelector((state) => state.user.user);
 
   return (
     <nav>
@@ -69,8 +72,8 @@ const NavBar = () => {
         </div>
       </div>
       <div className="account-container">
-        <img src={blank} alt={"photo of user"} />
-        <p>User</p>
+        <img src={user ? user.user.avatar : blank} alt={"photo of user"} />
+        <p>{user ? user.user.name.split(" ")[0] : `User`}</p>
 
         <Menu
           menuButton={
@@ -81,7 +84,12 @@ const NavBar = () => {
           transition
         >
           <MenuItem>Account Settings</MenuItem>
-          <MenuItem onClick={() => console.log("will log out")}>
+          <MenuItem
+            onClick={() => {
+              handleLogout();
+              navigate("/");
+            }}
+          >
             Logout
           </MenuItem>
         </Menu>

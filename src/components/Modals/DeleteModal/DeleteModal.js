@@ -1,24 +1,52 @@
-import React from "react";
+import React, { useRef } from "react";
 import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
+import { Toast } from "primereact/toast";
 import { useDispatch } from "react-redux";
 import "./DeleteModal.css";
 import { removeEmployee } from "../../../reducers/employeesReducer";
 
 const Modal = ({ open, id, children, onClose }) => {
+  const toast = useRef(null);
   const dispatch = useDispatch();
+
+  const showSuccess = () => {
+    toast.current.show({
+      severity: "success",
+      summary: "Success Message",
+      detail: "Message Content",
+      life: 3000,
+    });
+  };
+
+  const showError = () => {
+    toast.current.show({
+      severity: "error",
+      summary: "Error Message",
+      detail: "Message Content",
+      life: 3000,
+    });
+  };
+
+  const clear = () => {
+    toast.current.clear();
+  };
+
   const handleDelete = async (event) => {
     event.preventDefault();
     try {
       dispatch(removeEmployee(id));
+      showSuccess();
     } catch (exception) {
       console.log(exception);
+      showError();
     }
   };
 
   if (!open) return null;
   return createPortal(
     <>
+      <Toast ref={toast} />
       <div className="delete-modal--overlay" onClick={onClose}>
         <div className="delete-modal">
           <div className="titleCloseBtn">
