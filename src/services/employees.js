@@ -23,6 +23,14 @@ const create = (post) => {
   return request.then((response) => response.data);
 };
 
+const editEmployee = (newContent, id) => {
+  const config = {
+    headers: { Authorization: token },
+  };
+  const request = axios.put(`${baseUrl}/${id}`, newContent, config);
+  return request.then((response) => response.data);
+};
+
 const remove = (id) => {
   const config = {
     headers: { Authorization: token },
@@ -31,4 +39,4 @@ const remove = (id) => {
   return request.then((response) => response.data);
 };
 
-export default { getAllEmployees, create, remove, setToken };
+export default { getAllEmployees, editEmployee, create, remove, setToken };
