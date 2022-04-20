@@ -3,6 +3,7 @@ import employeesReducer from "./reducers/employeesReducer";
 import userReducer from "./reducers/userReducer";
 import vacationReducer from "./reducers/vacationReducer";
 import expensesReducer from "./reducers/expensesReducer";
+import modalReducer from "./reducers/modalReducer";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     user: userReducer,
     vacation: vacationReducer,
     expenses: expensesReducer,
+    modal: modalReducer,
   },
 });

@@ -26,3 +26,21 @@ table img {
   background-color: white;
   border-radius: 13px;
 }
+
+.modals-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.modals-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.2s;
+}
+.modals-exit {
+  opacity: 1;
+}
+.modals-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.2s;
+}

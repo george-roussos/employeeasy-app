@@ -28,6 +28,14 @@ export const createEmployee = (content) => {
   };
 };
 
+export const editEmployee = (content, id) => {
+  return async (dispatch) => {
+    await employeesService.editEmployee(content, id);
+    const employees = await employeesService.getAllEmployees();
+    dispatch(setEmployees(employees));
+  };
+};
+
 export const removeEmployee = (id) => {
   return async (dispatch) => {
     await employeesService.remove(id);

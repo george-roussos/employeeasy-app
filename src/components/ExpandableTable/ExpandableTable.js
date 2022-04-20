@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import "./ExpandableTable.css";
 import DeleteModal from "../Modals/DeleteModal/DeleteModal";
 import EmployeeModal from "../Modals/EmployeeModal/EmployeeModal";
+import { useDispatch, useSelector } from "react-redux";
+import { setEditMode } from "../../reducers/modalReducer";
 import { Button } from "primereact/button";
 import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
@@ -9,9 +11,11 @@ import { InputText } from "primereact/inputtext";
 import { IoAddOutline } from "react-icons/io5";
 import { ProgressSpinner } from "primereact/progressspinner";
 import { Toast } from "primereact/toast";
+import { CSSTransition } from "react-transition-group";
 const { flag } = require("country-emoji");
 
 const ExpandableTable = ({ employees }) => {
+  const dispatch = useDispatch();
   const [expandedRows, setExpandedRows] = useState(null);
   const toast = useRef(null);
   const isMounted = useRef(false);
@@ -20,14 +24,16 @@ const ExpandableTable = ({ employees }) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [editEmployeeModal, setEmployeeModal] = useState(false);
   const [message, setMessage] = useState("");
-  const [employeeId, setEmployeeId] = useState(null);
+  const [employee, setEmployee] = useState({});
+
+  const editMode = useSelector((state) => state.modal);
 
   const matches = !renderedEmployees
     ? employees
     : employees.filter((employee) =>
         employee.name
           .toLowerCase()
-          .split(" ")[0]
+          .split(" ")[1]
           .includes(globalFilterValue.toLowerCase())
       );
 
@@ -150,7 +156,7 @@ const ExpandableTable = ({ employees }) => {
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}
-            placeholder="Search by name"
+            placeholder="Search by last name"
           />
         </span>
       </div>
@@ -166,10 +172,7 @@ const ExpandableTable = ({ employees }) => {
           <DataTable
             value={matches}
             expandedRows={expandedRows}
-            onRowToggle={(e) => {
-              setExpandedRows(e.data);
-              setEmployeeId(Object.keys(e.data)[0]);
-            }}
+            onRowToggle={(e) => setExpandedRows(e.data)}
             onRowExpand={onRowExpand}
             onRowCollapse={onRowCollapse}
             responsiveLayout="scroll"
@@ -198,7 +201,7 @@ const ExpandableTable = ({ employees }) => {
               body={NameBodyTemplate}
             />
             <Column field="phone" header="Phone" sortable></Column>
-            <Column field="email" header="email" sortable></Column>
+            <Column field="email" header="Email" sortable></Column>
             <Column
               header="Actions"
               body={(data, props) => (
@@ -207,16 +210,17 @@ const ExpandableTable = ({ employees }) => {
                     icon="pi pi-user-edit"
                     className="mr-2"
                     onClick={() => {
+                      setEmployee(props.props.value[props.rowIndex]);
+                      dispatch(setEditMode(true));
                       setMessage("Edit Employee Information");
                       setEmployeeModal(true);
-                      setEmployeeId(props.props.value[props.rowIndex]._id);
                     }}
                   />
                   <Button
                     icon="pi pi-trash"
                     className="p-button-danger"
                     onClick={() => {
-                      setEmployeeId(props.props.value[props.rowIndex]._id);
+                      setEmployee(props.props.value[props.rowIndex]);
                       setDeleteModal(true);
                     }}
                   />
@@ -224,16 +228,32 @@ const ExpandableTable = ({ employees }) => {
               )}
             ></Column>
           </DataTable>
-          <DeleteModal
-            open={deleteModal}
-            onClose={() => setDeleteModal(false)}
-            id={employeeId}
-          />
-          <EmployeeModal
-            open={editEmployeeModal}
-            message={message}
-            onClose={() => setEmployeeModal(false)}
-          />
+          <CSSTransition
+            in={deleteModal}
+            classNames="modals"
+            unmountOnExit
+            timeout={200}
+          >
+            <DeleteModal
+              open={deleteModal}
+              onClose={() => setDeleteModal(false)}
+              employee={employee}
+            />
+          </CSSTransition>
+          <CSSTransition
+            in={editEmployeeModal}
+            classNames="modals"
+            unmountOnExit
+            timeout={200}
+          >
+            <EmployeeModal
+              open={editEmployeeModal}
+              message={message}
+              editMode={editMode}
+              employee={employee}
+              onClose={() => setEmployeeModal(false)}
+            />
+          </CSSTransition>
         </div>
       </div>
     </div>
