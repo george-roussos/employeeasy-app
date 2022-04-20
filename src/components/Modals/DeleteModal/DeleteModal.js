@@ -5,7 +5,6 @@ import { Toast } from "primereact/toast";
 import { useDispatch } from "react-redux";
 import "./DeleteModal.css";
 import { removeEmployee } from "../../../reducers/employeesReducer";
-import { CSSTransition } from "react-transition-group";
 
 const Modal = ({ open, employee, children, onClose }) => {
   const toast = useRef(null);
@@ -27,10 +26,6 @@ const Modal = ({ open, employee, children, onClose }) => {
       detail: "Message Content",
       life: 3000,
     });
-  };
-
-  const clear = () => {
-    toast.current.clear();
   };
 
   const handleDelete = async (event) => {
@@ -63,7 +58,7 @@ const Modal = ({ open, employee, children, onClose }) => {
             <h1>Delete entry from database?</h1>
           </div>
           <div className="body">
-            <p>Employee will be removed from database. Proceed?</p>
+            <p>Entry will be removed from database. Proceed?</p>
           </div>
           <div className="footer">
             <button

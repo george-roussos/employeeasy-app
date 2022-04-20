@@ -1,10 +1,10 @@
 import React from "react";
 import "./AllEmployees.css";
-import ExpandableTable from "../ExpandableTable/ExpandableTable";
+import ExpandableTable from "../ExpandableTables/Employees/ExpandableTable";
 
-const AllEmployees = ({ employees }) => {
+const AllEmployees = ({ dataset }) => {
   return (
-    <div className="employees-info">
+    <div className="dataset-info">
       <div className="titles">
         <h1>Employees</h1>
         <h5>
@@ -12,7 +12,7 @@ const AllEmployees = ({ employees }) => {
           actions on your team members.
         </h5>
       </div>
-      <ExpandableTable employees={employees} />
+      <ExpandableTable dataset={dataset} />
     </div>
   );
 };

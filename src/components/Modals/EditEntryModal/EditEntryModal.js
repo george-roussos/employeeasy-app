@@ -2,10 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
-import "./EmployeeModal.css";
+import "./EditEntryModal.css";
 import EmployeeForm from "../../EmployeeForm/EmployeeForm";
 
-const EmployeeModal = ({ open, message, employee, children, onClose }) => {
+const EditEntryModal = ({ open, message, employee, children, onClose }) => {
   if (!open) return null;
 
   return createPortal(
@@ -32,4 +32,4 @@ const EmployeeModal = ({ open, message, employee, children, onClose }) => {
   );
 };
 
-export default EmployeeModal;
+export default EditEntryModal;
