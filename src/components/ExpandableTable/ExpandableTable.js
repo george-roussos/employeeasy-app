@@ -176,7 +176,12 @@ const ExpandableTable = ({ employees }) => {
             rowExpansionTemplate={rowExpansionTemplate}
             dataKey="_id"
             header={header}
-            emptyMessage={<ProgressSpinner />}
+            emptyMessage={
+              <ProgressSpinner
+                style={{ width: "50px", height: "50px", display: "flex" }}
+                strokeWidth="8"
+              />
+            }
             rows={4}
             paginator
             paginatorTemplate="FirstPageLink PreviousPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"

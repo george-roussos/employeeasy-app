@@ -83,15 +83,18 @@ const NavBar = ({ handleLogout }) => {
           }
           transition
         >
-          <MenuItem>Account Settings</MenuItem>
-          <MenuItem
-            onClick={() => {
-              handleLogout();
-              navigate("/");
-            }}
-          >
-            Logout
-          </MenuItem>
+          {user
+            ? (<MenuItem>Account Settings</MenuItem>)(
+                <MenuItem
+                  onClick={() => {
+                    handleLogout();
+                    navigate("/");
+                  }}
+                >
+                  Logout
+                </MenuItem>
+              )
+            : null}
         </Menu>
       </div>
     </nav>
