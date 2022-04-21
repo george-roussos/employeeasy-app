@@ -16,6 +16,7 @@ import { ProgressSpinner } from "primereact/progressspinner";
 import { Toast } from "primereact/toast";
 import { removeEmployee } from "../../../reducers/employeesReducer";
 import { setEditMode } from "../../../reducers/modalReducer";
+
 const { flag } = require("country-emoji");
 
 const ExpandableTable = ({ dataset }) => {
@@ -140,15 +141,10 @@ const ExpandableTable = ({ dataset }) => {
       <div>
         <h5>Employee Information</h5>
         <DataTable value={[data]} responsiveLayout="scroll">
-          <Column
-            field="country"
-            sortable
-            header="Country"
-            body={countryBodyTemplate}
-          />
-          <Column field="department" header="Department" sortable />
-          <Column field="employmentType" header="Contract" sortable />
-          <Column field="manager.name" header="Manager" sortable />
+          <Column field="country" header="Country" body={countryBodyTemplate} />
+          <Column field="department" header="Department" />
+          <Column field="employmentType" header="Contract" />
+          <Column field="manager.name" header="Manager" />
         </DataTable>
       </div>
     );
