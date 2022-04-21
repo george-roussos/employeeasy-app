@@ -31,8 +31,6 @@ const ExpandableTable = ({ dataset }) => {
 
   const editMode = useSelector((state) => state.modal);
 
-  console.log(dataset);
-
   const matches = !renderedDataset
     ? dataset
     : dataset.filter((vacation) =>
@@ -94,6 +92,29 @@ const ExpandableTable = ({ dataset }) => {
     );
   };
 
+  const StatusBodyTemplate = (rowData) => {
+    const status = rowData.status;
+
+    return (
+      <React.Fragment>
+        <span
+          style={
+            status === "approved"
+              ? { backgroundColor: "rgb(64, 163, 67)" }
+              : status === "pending"
+              ? { backgroundColor: "rgb(215, 213, 54)" }
+              : status === "rejected"
+              ? { backgroundColor: "rgb(200, 44, 44)" }
+              : null
+          }
+          className="status-text"
+        >
+          {status}
+        </span>
+      </React.Fragment>
+    );
+  };
+
   useEffect(() => {
     if (isMounted.current) {
       const summary =
@@ -109,8 +130,8 @@ const ExpandableTable = ({ dataset }) => {
   const onRowExpand = (event) => {
     toast.current.show({
       severity: "info",
-      summary: "Showing information for:",
-      detail: event.data.date,
+      summary: "Showing vacation information:",
+      detail: event.data.employee.name,
       life: 1000,
     });
   };
@@ -118,8 +139,8 @@ const ExpandableTable = ({ dataset }) => {
   const onRowCollapse = (event) => {
     toast.current.show({
       severity: "success",
-      summary: "Hid information",
-      detail: event.data.date,
+      summary: "Hid vacation information",
+      detail: event.data.employee.name,
       life: 1000,
     });
   };
@@ -195,7 +216,13 @@ const ExpandableTable = ({ dataset }) => {
             />
             <Column field="startOn" header="Start On" sortable></Column>
             <Column field="endOn" header="End On" sortable></Column>
-            <Column field="status" header="Status" sortable></Column>
+            <Column
+              className="status"
+              field="status"
+              header="Status"
+              sortable
+              body={StatusBodyTemplate}
+            ></Column>
             <Column
               header="Actions"
               body={(data, props) => (

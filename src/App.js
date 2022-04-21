@@ -47,7 +47,6 @@ const App = () => {
       vacationService
         .getAllVacation()
         .then((vacation) => dispatch(setVacation(vacation)));
-      console.log(vacation);
     } else return undefined;
   }, [user]);
 

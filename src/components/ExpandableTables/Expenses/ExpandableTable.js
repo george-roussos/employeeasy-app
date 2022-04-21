@@ -36,7 +36,7 @@ const ExpandableTable = ({ dataset }) => {
     : dataset.filter((expense) =>
         expense.merchant
           .toLowerCase()
-          .split(" ")[1]
+          .split(" ")[0]
           .includes(globalFilterValue.toLowerCase())
       );
 
@@ -92,6 +92,29 @@ const ExpandableTable = ({ dataset }) => {
     );
   };
 
+  const StatusBodyTemplate = (rowData) => {
+    const status = rowData.status;
+
+    return (
+      <React.Fragment>
+        <span
+          style={
+            status === "paid"
+              ? { backgroundColor: "rgb(64, 163, 67)" }
+              : status === "pending"
+              ? { backgroundColor: "rgb(215, 213, 54)" }
+              : status === "rejected"
+              ? { backgroundColor: "rgb(200, 44, 44)" }
+              : null
+          }
+          className="status-text"
+        >
+          {status}
+        </span>
+      </React.Fragment>
+    );
+  };
+
   useEffect(() => {
     if (isMounted.current) {
       const summary =
@@ -133,7 +156,12 @@ const ExpandableTable = ({ dataset }) => {
             sortable
             body={NameBodyTemplate}
           />
-          <Column field="status" header="Status" sortable />
+          <Column
+            field="status"
+            header="Status"
+            sortable
+            body={StatusBodyTemplate}
+          />
         </DataTable>
       </div>
     );

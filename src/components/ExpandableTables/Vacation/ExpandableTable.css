@@ -44,3 +44,15 @@ table img {
   transform: scale(0.9);
   transition: all 0.2s;
 }
+
+.status-text {
+  text-transform: uppercase;
+  color: rgb(254, 254, 254);
+  padding: 5px;
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border-radius: 100px;
+  font-weight: 600;
+}
