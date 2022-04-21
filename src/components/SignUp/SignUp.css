@@ -20,9 +20,14 @@ select {
   padding: 10px;
   font-size: 15px;
   border-radius: 6px;
-  border: 1.5px solid rgb(218, 218, 218);
+  border: 1px solid rgb(218, 218, 218);
   margin: 15px;
   flex: 100%;
+  transition: 0.2s;
+}
+
+.signup-form form input:hover {
+  border: 1px solid rgb(43, 98, 169);
 }
 
 .signup-form #password {

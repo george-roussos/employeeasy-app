@@ -1,6 +1,6 @@
 import "./SignUp.css";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { setPassword, setUser, setUsername } from "../../reducers/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -8,6 +8,7 @@ import Avatar from "@mui/material/Avatar";
 import { Link } from "react-router-dom";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Message from "../../../src/components/Message/Message";
+import { Toast } from "primereact/toast";
 import employeeService from "../../services/employees";
 import loginPhoto from "../../images/login-vector.png";
 import { setNotification } from "../../reducers/messageReducer";
@@ -25,6 +26,8 @@ const SignupForm = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
+  const toast = useRef(null);
 
   const handleSignUp = async (event) => {
     event.preventDefault();
@@ -45,7 +48,13 @@ const SignupForm = () => {
           passwordConfirmation: formPasswordConfirm,
         };
         await userService.createUser(newUser);
-        navigate("/login");
+        toast.current.show({
+          severity: "info",
+          summary: `Account succesfully created!`,
+          detail: "Taking you to log in page...",
+          life: 2000,
+        });
+        setTimeout(() => navigate("/login"), 2000);
       } catch (exception) {
         dispatch(setNotification("Please try again", 10));
         dispatch(setStyle("error", 10));
@@ -58,6 +67,7 @@ const SignupForm = () => {
 
   return (
     <div className="signup-form">
+      <Toast ref={toast} />
       <div className="signup-form-elements">
         <div className="form-decor">
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
