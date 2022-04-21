@@ -6,6 +6,7 @@ import AllEmployees from "./components/AllEmployees/AllEmployees";
 import Team from "./components/Team/Team";
 import employeeService from "./services/employees";
 import expensesService from "./services/expenses";
+import vacationService from "./services/vacation";
 import loginService from "./services/login";
 import { useDispatch, useSelector } from "react-redux";
 import { setEmployees } from "./reducers/employeesReducer";
@@ -14,7 +15,9 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import SignUp from "./components/SignUp/SignUp";
 import WelcomePage from "./components/WelcomePage/WelcomePage";
 import { setExpenses } from "./reducers/expensesReducer";
+import { setVacation } from "./reducers/vacationReducer";
 import Expenses from "./components/Expenses/Expenses";
+import Vacation from "./components/Vacation/Vacation";
 
 const App = () => {
   const user = useSelector((state) => state.user.user);
@@ -30,6 +33,7 @@ const App = () => {
 
   const employees = useSelector((state) => state.employees);
   const expenses = useSelector((state) => state.expenses);
+  const vacation = useSelector((state) => state.vacation);
 
   useEffect(() => {
     if (user) {
@@ -39,6 +43,10 @@ const App = () => {
       expensesService
         .getAllExpenses()
         .then((expenses) => dispatch(setExpenses(expenses)));
+      vacationService
+        .getAllVacation()
+        .then((vacation) => dispatch(setVacation(vacation)));
+      console.log(vacation);
     } else return undefined;
   }, [user]);
 
@@ -71,6 +79,7 @@ const App = () => {
           />
           <Route path="/my-team" element={<Team dataset={employees} />} />
           <Route path="/expenses" element={<Expenses dataset={expenses} />} />
+          <Route path="/vacation" element={<Vacation dataset={vacation} />} />
         </Routes>
       </BrowserRouter>
     </div>

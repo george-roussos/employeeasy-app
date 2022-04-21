@@ -1,0 +1,9 @@
+.dataset-info {
+  background-color: rgb(244, 242, 242);
+  flex: 1 0 10%;
+}
+
+.dataset-info .titles {
+  margin-left: 60px;
+  color: rgb(83, 83, 83);
+}
