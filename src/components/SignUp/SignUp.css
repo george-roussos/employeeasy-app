@@ -1,0 +1,80 @@
+.signup-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  width: 75%;
+  background-color: white;
+  border-radius: 6px;
+  padding: 40px;
+}
+
+.signup-form-elements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-form form input,
+select {
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1.5px solid rgb(218, 218, 218);
+  margin: 15px;
+  flex: 100%;
+}
+
+.signup-form #password {
+  margin-bottom: 1rem;
+}
+
+.signup-photo img {
+  width: 30em;
+  height: 20em;
+}
+
+label,
+input {
+  display: block;
+  width: 25rem;
+}
+
+input {
+  background-color: rgb(216, 233, 250);
+  border: none;
+}
+
+#signup-button {
+  display: inline-block;
+  background-color: rgb(72, 72, 183);
+  color: #fff;
+  margin-top: 10px;
+
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.15);
+
+  /* Only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* Put transition on original "state" */
+  /* transition: background-color 0.3s; */
+  transition: all 0.3s;
+  width: 100%;
+}
+
+#signup-button:hover,
+#signup-button:active {
+  background-color: rgb(89, 89, 179);
+}
+
+.signup-message:hover {
+  text-decoration: underline;
+}

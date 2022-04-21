@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "http://localhost:3001/api/employees";
+const baseUrl = "http://localhost:3001/api/users";
 
 let token = null;
 
@@ -7,11 +7,8 @@ const setToken = (newToken) => {
   token = `bearer ${newToken}`;
 };
 
-const createUser = (post) => {
-  const config = {
-    headers: { Authorization: token },
-  };
-  const request = axios.post(baseUrl, post, config);
+const createUser = (credentials) => {
+  const request = axios.post(baseUrl, credentials);
   return request.then((response) => response.data);
 };
 

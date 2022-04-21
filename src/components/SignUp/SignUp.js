@@ -1,92 +1,157 @@
+import "./SignUp.css";
+
 import React, { useState } from "react";
+import { setPassword, setUser, setUsername } from "../../reducers/userReducer";
+import { useDispatch, useSelector } from "react-redux";
 
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core";
+import Avatar from "@mui/material/Avatar";
+import { Link } from "react-router-dom";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Message from "../../../src/components/Message/Message";
+import employeeService from "../../services/employees";
+import loginPhoto from "../../images/login-vector.png";
+import { setNotification } from "../../reducers/messageReducer";
+import { setStyle } from "../../reducers/messageStyleReducer";
+import { useNavigate } from "react-router-dom";
+import userService from "../../services/users";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: theme.spacing(2),
+const SignupForm = () => {
+  const [formFullname, setFormFullName] = useState(null);
+  const [formUsername, setFormUsername] = useState(null);
+  const [formPassword, setFormPassword] = useState(null);
+  const [formPasswordConfirm, setFormPasswordConfirm] = useState(null);
+  const [formEmail, setFormEmail] = useState(null);
 
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: "300px",
-    },
-    "& .MuiButtonBase-root": {
-      margin: theme.spacing(2),
-    },
-  },
-}));
+  const navigate = useNavigate();
 
-const Form = ({ handleClose }) => {
-  const classes = useStyles();
-  // create state variables for each input
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(firstName, lastName, email, password);
-    handleClose();
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+
+    if (
+      formUsername &&
+      formPassword &&
+      formEmail &&
+      formPassword &&
+      formPasswordConfirm
+    ) {
+      try {
+        const newUser = {
+          name: formFullname,
+          username: formUsername,
+          email: formEmail,
+          password: formPassword,
+          passwordConfirmation: formPasswordConfirm,
+        };
+        await userService.createUser(newUser);
+        navigate("/login");
+      } catch (exception) {
+        dispatch(setNotification("Please try again", 10));
+        dispatch(setStyle("error", 10));
+      }
+    } else {
+      dispatch(setNotification("Please enter all required fields", 10));
+      dispatch(setStyle("error", 10));
+    }
   };
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit}>
-      <TextField
-        label="First Name"
-        variant="filled"
-        required
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
-      />
-      <TextField
-        label="Last Name"
-        variant="filled"
-        required
-        value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
-      />
-      <TextField
-        label="Email"
-        variant="filled"
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <TextField
-        label="Password"
-        variant="filled"
-        type="password"
-        required
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <TextField
-        label="Confirm password"
-        variant="filled"
-        type="password"
-        required
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-      />
-      <div>
-        <Button variant="contained" onClick={handleClose}>
-          Cancel
-        </Button>
-        <Button type="submit" variant="contained" color="primary">
-          Signup
-        </Button>
+    <div className="signup-form">
+      <div className="signup-form-elements">
+        <div className="form-decor">
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <p>Sign Up</p>
+        </div>
+        <div className="form">
+          <form onSubmit={handleSignUp}>
+            <div>
+              <input
+                id="fullname"
+                placeholder="Full Name *"
+                type="text"
+                name="fullname"
+                onChange={({ target }) => {
+                  setFormFullName(target.value);
+                  dispatch(setNotification(null));
+                }}
+              />
+            </div>
+            <div>
+              <input
+                id="username"
+                placeholder="Username *"
+                type="text"
+                name="username"
+                onChange={({ target }) => {
+                  setFormUsername(target.value);
+                  dispatch(setNotification(null));
+                }}
+              />
+            </div>
+            <div>
+              <input
+                id="email"
+                placeholder="Email address *"
+                type="text"
+                name="email"
+                onChange={({ target }) => {
+                  setFormEmail(target.value);
+                  dispatch(setNotification(null));
+                }}
+              />
+            </div>
+            <div>
+              <input
+                id="password"
+                placeholder="Password *"
+                type="password"
+                name="password"
+                onChange={({ target }) => {
+                  setFormPassword(target.value);
+                  dispatch(setNotification(null));
+                }}
+              />
+            </div>
+            <div>
+              <input
+                id="passwordConfirm"
+                placeholder="Confirm Password *"
+                type="password"
+                name="passwordConfirm"
+                onChange={({ target }) => {
+                  setFormPasswordConfirm(target.value);
+                  dispatch(setNotification(null));
+                }}
+              />
+            </div>
+            <Message />
+            <button id="signup-button" type="submit">
+              SIGN UP
+            </button>
+          </form>
+          <Link
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              color: "rgb(72, 72, 183)",
+              textDecoration: "underline",
+              marginTop: "10px",
+            }}
+            className="signup-message"
+            to="/login"
+          >
+            Already have an account? Log in
+          </Link>
+        </div>
       </div>
-    </form>
+      <div className="signup-photo">
+        <img src={loginPhoto} alt="Two people sitting on table" />
+      </div>
+    </div>
   );
 };
 
-export default Form;
+export default SignupForm;
