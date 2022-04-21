@@ -5,7 +5,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import "./EditEntryModal.css";
 import EmployeeForm from "../../EmployeeForm/EmployeeForm";
 
-const EditEntryModal = ({ open, message, employee, children, onClose }) => {
+const EditEntryModal = ({ open, message, entry, children, onClose }) => {
   if (!open) return null;
 
   return createPortal(
@@ -24,7 +24,7 @@ const EditEntryModal = ({ open, message, employee, children, onClose }) => {
           <div className="title">
             <h1>{message}</h1>
           </div>
-          <EmployeeForm employee={employee} onClose={onClose} />
+          <EmployeeForm employee={entry} onClose={onClose} />
         </div>
       </div>
     </>,
