@@ -3,7 +3,9 @@ import "./ExpandableTable.css";
 import DeleteModal from "../../Modals/DeleteModal/DeleteModal";
 import EditEntryModal from "../../Modals/EditEntryModal/EditEntryModal";
 import { useDispatch, useSelector } from "react-redux";
+import { showSuccess, showError } from "../../../helpers/tableHelper";
 import { setEditMode } from "../../../reducers/modalReducer";
+import { removeEmployee } from "../../../reducers/employeesReducer";
 import { Button } from "primereact/button";
 import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
@@ -36,6 +38,17 @@ const ExpandableTable = ({ dataset }) => {
           .split(" ")[1]
           .includes(globalFilterValue.toLowerCase())
       );
+
+  const handleDelete = async (event) => {
+    event.preventDefault();
+    try {
+      dispatch(removeEmployee(employee._id));
+      showSuccess();
+    } catch (exception) {
+      console.log(exception);
+      showError();
+    }
+  };
 
   const onGlobalFilterChange = (e) => {
     const value = e.target.value;
@@ -237,7 +250,7 @@ const ExpandableTable = ({ dataset }) => {
             <DeleteModal
               open={deleteModal}
               onClose={() => setDeleteModal(false)}
-              employee={employee}
+              handleDelete={handleDelete}
             />
           </CSSTransition>
           <CSSTransition
@@ -250,7 +263,7 @@ const ExpandableTable = ({ dataset }) => {
               open={editEditEntryModal}
               message={message}
               editMode={editMode}
-              employee={employee}
+              entry={employee}
               onClose={() => setEditEntryModal(false)}
             />
           </CSSTransition>

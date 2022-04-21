@@ -3,7 +3,9 @@ import "./ExpandableTable.css";
 import DeleteModal from "../../Modals/DeleteModal/DeleteModal";
 import EditEntryModal from "../../Modals/EditEntryModal/EditEntryModal";
 import { useDispatch, useSelector } from "react-redux";
+import { showSuccess, showError } from "../../../helpers/tableHelper";
 import { setEditMode } from "../../../reducers/modalReducer";
+import { removeExpense } from "../../../reducers/expensesReducer";
 import { Button } from "primereact/button";
 import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
@@ -36,6 +38,17 @@ const ExpandableTable = ({ dataset }) => {
           .includes(globalFilterValue.toLowerCase())
       );
 
+  const handleDelete = async (event) => {
+    event.preventDefault();
+    try {
+      dispatch(removeExpense(expense._id));
+      showSuccess();
+    } catch (exception) {
+      console.log(exception);
+      showError();
+    }
+  };
+
   const onGlobalFilterChange = (e) => {
     const value = e.target.value;
     setGlobalFilterValue(value);
@@ -50,7 +63,9 @@ const ExpandableTable = ({ dataset }) => {
   };
 
   const NameBodyTemplate = (rowData) => {
-    const expense = rowData.employee;
+    const expense = rowData.employee.name;
+    const avatar = rowData.employee;
+    console.log(avatar);
     return (
       <React.Fragment>
         <div
@@ -61,7 +76,7 @@ const ExpandableTable = ({ dataset }) => {
         >
           <img
             alt={expense}
-            src={`${rowData.avatar}`}
+            src={`${rowData.employee.avatar}`}
             onError={(e) =>
               (e.target.src =
                 "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
@@ -215,7 +230,7 @@ const ExpandableTable = ({ dataset }) => {
             <DeleteModal
               open={deleteModal}
               onClose={() => setDeleteModal(false)}
-              expense={expense}
+              handleDelete={handleDelete}
             />
           </CSSTransition>
           <CSSTransition
