@@ -1,8 +1,10 @@
+import "./DeleteModal.css";
+
 import React, { useRef } from "react";
-import { createPortal } from "react-dom";
+
 import { IoCloseOutline } from "react-icons/io5";
 import { Toast } from "primereact/toast";
-import "./DeleteModal.css";
+import { createPortal } from "react-dom";
 
 const Modal = ({ open, handleDelete, children, onClose }) => {
   const toast = useRef(null);

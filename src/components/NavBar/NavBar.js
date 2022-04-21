@@ -1,24 +1,26 @@
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import logo from "../../images/logo.png";
-import blank from "../../images/blank-profile.png";
-import {
-  IoCalendarOutline,
-  IoHomeOutline,
-  IoDocumentsOutline,
-  IoSettingsOutline,
-  IoCardOutline,
-  IoChevronUp,
-  IoNewspaperOutline,
-  IoPeopleCircleOutline,
-  IoPersonOutline,
-  IoHelpBuoyOutline,
-} from "react-icons/io5";
-import { Link } from "react-router-dom";
-import { Menu, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import "./NavBar.css";
+
+import {
+  IoCalendarOutline,
+  IoCardOutline,
+  IoChevronUp,
+  IoDocumentsOutline,
+  IoHelpBuoyOutline,
+  IoHomeOutline,
+  IoNewspaperOutline,
+  IoPeopleCircleOutline,
+  IoPersonOutline,
+  IoSettingsOutline,
+} from "react-icons/io5";
+import { Menu, MenuItem } from "@szhsin/react-menu";
+
+import { Link } from "react-router-dom";
+import blank from "../../images/blank-profile.png";
+import logo from "../../images/logo.png";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const NavBar = ({ handleLogout }) => {
   const navigate = useNavigate();
@@ -47,11 +49,11 @@ const NavBar = ({ handleLogout }) => {
           </div>
           <div className="vacation-link">
             <IoCalendarOutline />
-            <Link to="/employees">Vacation</Link>
+            <Link to="/vacation">Vacation</Link>
           </div>
           <div className="expenses-link">
             <IoCardOutline />
-            <Link to="/employees">Expenses</Link>
+            <Link to="/expenses">Expenses</Link>
           </div>
           <span className="company-divider">Company</span>
           <div className="company-link">
@@ -89,7 +91,7 @@ const NavBar = ({ handleLogout }) => {
             <MenuItem
               onClick={() => {
                 handleLogout();
-                navigate("/");
+                navigate("/login");
               }}
             >
               Logout

@@ -1,23 +1,24 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import NavBar from "./components/NavBar/NavBar";
+import { setPassword, setUser, setUsername } from "./reducers/userReducer";
+import { useDispatch, useSelector } from "react-redux";
+
 import AllEmployees from "./components/AllEmployees/AllEmployees";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Expenses from "./components/Expenses/Expenses";
+import LoginForm from "./components/LoginForm/LoginForm";
+import NavBar from "./components/NavBar/NavBar";
+import SignUp from "./components/SignUp/SignUp";
 import Team from "./components/Team/Team";
+import Vacation from "./components/Vacation/Vacation";
+import WelcomePage from "./components/WelcomePage/WelcomePage";
 import employeeService from "./services/employees";
 import expensesService from "./services/expenses";
-import vacationService from "./services/vacation";
 import loginService from "./services/login";
-import { useDispatch, useSelector } from "react-redux";
 import { setEmployees } from "./reducers/employeesReducer";
-import { setUser, setUsername, setPassword } from "./reducers/userReducer";
-import LoginForm from "./components/LoginForm/LoginForm";
-import SignUp from "./components/SignUp/SignUp";
-import WelcomePage from "./components/WelcomePage/WelcomePage";
 import { setExpenses } from "./reducers/expensesReducer";
 import { setVacation } from "./reducers/vacationReducer";
-import Expenses from "./components/Expenses/Expenses";
-import Vacation from "./components/Vacation/Vacation";
+import { useEffect } from "react";
+import vacationService from "./services/vacation";
 
 const App = () => {
   const user = useSelector((state) => state.user.user);

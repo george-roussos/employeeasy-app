@@ -1,11 +1,14 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
-import { editEmployee, createEmployee } from "../../reducers/employeesReducer";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { setEditMode } from "../../reducers/modalReducer";
 import "./EmployeeForm.css";
+
 import * as yup from "yup";
+
+import { createEmployee, editEmployee } from "../../reducers/employeesReducer";
+import { useDispatch, useSelector } from "react-redux";
+
+import React from "react";
+import { setEditMode } from "../../reducers/modalReducer";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const schema = yup.object().shape({
   fullName: yup.string().required(),

@@ -1,6 +1,7 @@
+import "./Message.css";
+
 import React from "react";
 import { useSelector } from "react-redux";
-import "./Message.css";
 
 const Message = () => {
   const notification = useSelector((state) => state.message);

@@ -1,6 +1,4 @@
-import ExpandableTable from "../../components/ExpandableTable/ExpandableTable";
 import "./Dashboard.css";
-const { flag, code, name, countries } = require("country-emoji");
 
 const Dashboard = () => {
   return (

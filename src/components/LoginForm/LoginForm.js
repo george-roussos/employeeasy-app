@@ -1,18 +1,20 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { setUser, setUsername, setPassword } from "../../reducers/userReducer";
-import { setNotification } from "../../reducers/messageReducer";
-import { setStyle } from "../../reducers/messageStyleReducer";
 import "./LoginForm.css";
+
+import React, { useState } from "react";
+import { setPassword, setUser, setUsername } from "../../reducers/userReducer";
+import { useDispatch, useSelector } from "react-redux";
+
+import Avatar from "@mui/material/Avatar";
+import { CSSTransition } from "react-transition-group";
+import { Link } from "react-router-dom";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Message from "../../../src/components/Message/Message";
 import employeeService from "../../services/employees";
 import loginPhoto from "../../images/login-vector.png";
 import loginService from "../../services/login";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Message from "../../../src/components/Message/Message";
-import Avatar from "@mui/material/Avatar";
-import { Link } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
+import { setNotification } from "../../reducers/messageReducer";
+import { setStyle } from "../../reducers/messageStyleReducer";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = (props) => {
   const username = useSelector((state) => state.user.username);

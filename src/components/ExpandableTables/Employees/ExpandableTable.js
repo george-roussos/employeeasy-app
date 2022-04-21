@@ -1,19 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
 import "./ExpandableTable.css";
-import DeleteModal from "../../Modals/DeleteModal/DeleteModal";
-import EditEntryModal from "../../Modals/EditEntryModal/EditEntryModal";
+
+import React, { useEffect, useRef, useState } from "react";
+import { showError, showSuccess } from "../../../helpers/tableHelper";
 import { useDispatch, useSelector } from "react-redux";
-import { showSuccess, showError } from "../../../helpers/tableHelper";
-import { setEditMode } from "../../../reducers/modalReducer";
-import { removeEmployee } from "../../../reducers/employeesReducer";
+
 import { Button } from "primereact/button";
+import { CSSTransition } from "react-transition-group";
 import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
+import DeleteModal from "../../Modals/DeleteModal/DeleteModal";
+import EditEntryModal from "../../Modals/EditEntryModal/EditEntryModal";
 import { InputText } from "primereact/inputtext";
 import { IoAddOutline } from "react-icons/io5";
 import { ProgressSpinner } from "primereact/progressspinner";
 import { Toast } from "primereact/toast";
-import { CSSTransition } from "react-transition-group";
+import { removeEmployee } from "../../../reducers/employeesReducer";
+import { setEditMode } from "../../../reducers/modalReducer";
 const { flag } = require("country-emoji");
 
 const ExpandableTable = ({ dataset }) => {

@@ -18,8 +18,8 @@ select {
 }
 
 .login-photo img {
-  width: 40em;
-  height: 30em;
+  width: 30em;
+  height: 20em;
 }
 
 label,

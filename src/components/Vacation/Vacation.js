@@ -1,6 +1,7 @@
-import React from "react";
 import "./Vacation.css";
+
 import ExpandableTable from "../ExpandableTables/Vacation/ExpandableTable";
+import React from "react";
 
 const Vacation = ({ dataset }) => {
   return (

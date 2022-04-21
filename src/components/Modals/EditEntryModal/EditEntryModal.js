@@ -1,9 +1,9 @@
-import React from "react";
-import { useState } from "react";
-import { createPortal } from "react-dom";
-import { IoCloseOutline } from "react-icons/io5";
 import "./EditEntryModal.css";
+
 import EmployeeForm from "../../EmployeeForm/EmployeeForm";
+import { IoCloseOutline } from "react-icons/io5";
+import React from "react";
+import { createPortal } from "react-dom";
 
 const EditEntryModal = ({ open, message, entry, children, onClose }) => {
   if (!open) return null;

@@ -1,6 +1,7 @@
-import React from "react";
 import "./Expenses.css";
+
 import ExpandableTable from "../ExpandableTables/Expenses/ExpandableTable";
+import React from "react";
 
 const Expenses = ({ dataset }) => {
   return (
