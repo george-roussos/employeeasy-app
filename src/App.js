@@ -64,8 +64,21 @@ const App = () => {
       <BrowserRouter>
         <NavBar handleLogout={handleLogOut} />
         <Routes>
-          <Route path="/" element={<WelcomePage />} />
-          <Route path="/signup" element={<SignUp />} />
+          {user ? (
+            <Route path="/" element={<WelcomePage />} />
+          ) : (
+            <Route
+              path="/"
+              element={
+                <LoginForm
+                  user={user}
+                  username={username}
+                  password={password}
+                />
+              }
+            />
+          )}
+          <Route path="/sign-up" element={<SignUp />} />
           <Route
             path="/login"
             element={
