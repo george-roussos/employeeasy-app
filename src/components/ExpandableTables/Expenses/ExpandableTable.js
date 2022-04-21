@@ -226,7 +226,9 @@ const ExpandableTable = ({ dataset }) => {
             <Column
               header="Actions"
               body={(data, props) => (
-                <div style={{ display: "flex" }}>
+                <div
+                  style={{ display: "flex", justifyContent: "space-around" }}
+                >
                   <Button
                     icon="pi pi-user-edit"
                     className="mr-2"
@@ -245,6 +247,7 @@ const ExpandableTable = ({ dataset }) => {
                       setDeleteModal(true);
                     }}
                   />
+                  <Button icon="pi pi-send" className="p-button-success" />
                 </div>
               )}
             ></Column>
