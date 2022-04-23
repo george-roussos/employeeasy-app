@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AllEmployees from "./components/AllEmployees/AllEmployees";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Expenses from "./components/Expenses/Expenses";
-import LoginPage from "./components/LoginPage/LoginPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import NavBar from "./components/NavBar/NavBar";
 import SignUp from "./components/SignUp/SignUp";
 import Team from "./components/Team/Team";
