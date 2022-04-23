@@ -32,52 +32,59 @@ const NavBar = ({ handleLogout }) => {
       <div className="logo-container" onClick={() => navigate("/")}>
         <img src={logo} alt="logo" />
       </div>
-      {user ? (
-        <div className="links">
-          <div className="dashboard-link">
-            <IoNewspaperOutline />
-            <Link to="/">Dashboard</Link>
-          </div>
-          <span className="people-divider">People</span>
-          <div className="employee-link">
-            <IoPersonOutline />
-            <Link to="/all-employees">Employees</Link>
-          </div>
-          <div className="team-link">
-            <IoPeopleCircleOutline />
-            <Link to="/my-team">Team</Link>
-          </div>
-          <div className="vacation-link">
-            <IoCalendarOutline />
-            <Link to="/vacation">Vacation</Link>
-          </div>
-          <div className="expenses-link">
-            <IoCardOutline />
-            <Link to="/expenses">Expenses</Link>
-          </div>
-          <span className="company-divider">Company</span>
-          <div className="company-link">
-            <IoHomeOutline />
-            <Link to="/employees">Company</Link>
-          </div>
-          <div className="documents-link">
-            <IoDocumentsOutline />
-            <Link to="/employees">Documents</Link>
-          </div>
-          <span></span>
-          <div className="settings-link">
-            <IoSettingsOutline />
-            <Link to="/employees">Settings</Link>
-          </div>
-          <div className="help-link">
-            <IoHelpBuoyOutline />
-            <Link to="/employees">Help</Link>
-          </div>
-        </div>
-      ) : null}
+      <div>
+        {user ? (
+          <ul className="links-list">
+            <li>
+              <IoNewspaperOutline />
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <IoPersonOutline />
+              <Link to="/all-employees">Employees</Link>
+            </li>
+            <li>
+              <IoPeopleCircleOutline />
+              <Link to="/my-team">Team</Link>
+            </li>
+            <span className="people-divider">People</span>
+            <li>
+              <IoCalendarOutline />
+              <Link to="/vacation">Vacation</Link>
+            </li>
+            <li>
+              <IoCardOutline />
+              <Link to="/expenses">Expenses</Link>
+            </li>
+            <li>
+              <IoPeopleCircleOutline />
+              <Link to="/my-team">Team</Link>
+            </li>
+            <span className="company-divider">Company</span>
+            <li>
+              <IoHomeOutline />
+              <Link to="/employees">Company</Link>
+            </li>
+            <li>
+              <IoDocumentsOutline />
+              <Link to="/employees">Documents</Link>
+            </li>
+            <span></span>
+            <span></span>
+            <li>
+              <IoSettingsOutline />
+              <Link to="/employees">Settings</Link>
+            </li>
+            <li>
+              <IoHelpBuoyOutline />
+              <Link to="/employees">Help</Link>
+            </li>
+          </ul>
+        ) : null}
+      </div>
       <div className="account-container">
         <img src={user ? user.user.avatar : blank} alt={"photo of user"} />
-        <p>{user ? user.user.name.split(" ")[0] : `User`}</p>
+        <p>{user ? user.user.name.split(" ")[0] : null}</p>
         {user ? (
           <Menu
             menuButton={
