@@ -56,9 +56,9 @@ const ExpandableTable = ({ dataset }) => {
     setGlobalFilterValue(value);
     setRenderedDataset(
       dataset.filter((vacation) =>
-        vacation.merchant
+        vacation.employee.name
           .toLowerCase()
-          .split(" ")[0]
+          .split(" ")[1]
           .includes(globalFilterValue.toLowerCase())
       )
     );
