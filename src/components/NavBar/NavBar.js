@@ -39,6 +39,7 @@ const NavBar = ({ handleLogout }) => {
               <IoNewspaperOutline />
               <Link to="/dashboard">Dashboard</Link>
             </li>
+            <span className="people-divider">People</span>
             <li>
               <IoPersonOutline />
               <Link to="/all-employees">Employees</Link>
@@ -47,7 +48,6 @@ const NavBar = ({ handleLogout }) => {
               <IoPeopleCircleOutline />
               <Link to="/my-team">Team</Link>
             </li>
-            <span className="people-divider">People</span>
             <li>
               <IoCalendarOutline />
               <Link to="/vacation">Vacation</Link>
