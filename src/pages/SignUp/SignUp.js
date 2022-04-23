@@ -1,18 +1,16 @@
 import "./SignUp.css";
 
 import React, { useRef, useState } from "react";
-import { setPassword, setUser, setUsername } from "../../reducers/userReducer";
-import { useDispatch, useSelector } from "react-redux";
 
 import Avatar from "@mui/material/Avatar";
 import { Link } from "react-router-dom";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Message from "../../../src/components/Message/Message";
+import Message from "../../components/Message/Message";
 import { Toast } from "primereact/toast";
-import employeeService from "../../services/employees";
 import loginPhoto from "../../images/login-vector.svg";
 import { setNotification } from "../../reducers/messageReducer";
 import { setStyle } from "../../reducers/messageStyleReducer";
+import { useDispatch, } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import userService from "../../services/users";
 
