@@ -10,7 +10,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Message from "../../../src/components/Message/Message";
 import { Toast } from "primereact/toast";
 import employeeService from "../../services/employees";
-import loginPhoto from "../../images/login-vector.png";
+import loginPhoto from "../../images/login-vector.svg";
 import { setNotification } from "../../reducers/messageReducer";
 import { setStyle } from "../../reducers/messageStyleReducer";
 import { useNavigate } from "react-router-dom";
