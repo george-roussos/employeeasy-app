@@ -51,9 +51,9 @@ const LoginPage = () => {
           severity: "info",
           summary: `Welcome ${user.user.name.split(" ")[0]}!`,
           detail: "You are being redirected to the environment",
-          life: 2000,
+          life: 1000,
         });
-        setTimeout(() => navigate("/dashboard"), 2000);
+        setTimeout(() => navigate("/dashboard"), 1500);
       } catch (exception) {
         dispatch(setNotification("Wrong username or password", 10));
         dispatch(setStyle("error", 10));
