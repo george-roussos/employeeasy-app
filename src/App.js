@@ -1,21 +1,19 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { setPassword, setUser, setUsername } from "./reducers/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 import AllEmployees from "./components/AllEmployees/AllEmployees";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Expenses from "./components/Expenses/Expenses";
-import LoginForm from "./components/LoginForm/LoginForm";
+import LoginPage from "./components/LoginPage/LoginPage";
 import NavBar from "./components/NavBar/NavBar";
 import SignUp from "./components/SignUp/SignUp";
 import Team from "./components/Team/Team";
 import Vacation from "./components/Vacation/Vacation";
-import WelcomePage from "./components/WelcomePage/WelcomePage";
 import employeeService from "./services/employees";
 import expensesService from "./services/expenses";
-import loginService from "./services/login";
 import { setEmployees } from "./reducers/employeesReducer";
 import { setExpenses } from "./reducers/expensesReducer";
+import { setUser } from "./reducers/userReducer";
 import { setVacation } from "./reducers/vacationReducer";
 import { useEffect } from "react";
 import vacationService from "./services/vacation";
@@ -65,24 +63,15 @@ const App = () => {
         <NavBar handleLogout={handleLogOut} />
         <Routes>
           {user ? (
-            <Route path="/" element={<WelcomePage />} />
+            <Route path="/" element={<Dashboard />} />
           ) : (
-            <Route
-              path="/"
-              element={
-                <LoginForm
-                  user={user}
-                  username={username}
-                  password={password}
-                />
-              }
-            />
+            <Route path="/" element={<LoginPage />} />
           )}
           <Route path="/sign-up" element={<SignUp />} />
           <Route
             path="/login"
             element={
-              <LoginForm user={user} username={username} password={password} />
+              <LoginPage user={user} username={username} password={password} />
             }
           />
           <Route path="/dashboard" element={<Dashboard />} />

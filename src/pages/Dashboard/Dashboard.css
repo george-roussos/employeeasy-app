@@ -3,29 +3,124 @@
 .dashboard {
   background-color: rgb(244, 242, 242);
   flex: 1 0 10%;
+  color: rgb(83, 83, 83);
 }
 
-table img {
+.top-header {
   display: flex;
   align-items: center;
-  width: 30px;
-  border-radius: 50%;
+  font-size: 12px;
+  gap: 12px;
+  line-height: 6pt;
+  color: rgb(83, 83, 83);
+  margin-top: 1.2rem;
+  width: 100%;
 }
 
-.dashboard table img,
-.employee-name {
-  display: flex;
-  align-items: center;
-}
-
-.dashboard .m-0 {
-  font-size: 20px;
-}
-
-.table-container {
-  margin: auto;
-  width: 90%;
-  padding: 20px 20px;
+.header-icon {
+  font-size: 23px;
+  color: rgb(249, 178, 46);
   background-color: white;
-  border-radius: 13px;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.06);
+  margin-left: 12px;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  margin-right: 1.2rem;
+}
+
+.notification-window-message {
+  font-size: 1rem;
+  padding: 1.5rem;
+}
+
+.timeline-widget {
+  padding: 20px 30px;
+  background-color: white;
+  width: 40%;
+}
+
+.timeline-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hamburger-icon {
+  font-size: 1.5rem;
+}
+
+.timeline-widget > .timeline-widget-header > h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.time-icon {
+  font-size: 23px;
+  color: rgb(249, 178, 46);
+}
+
+.appointment-title,
+.appointment-notify {
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.appointments {
+  display: flex;
+  align-items: center;
+  line-height: 2rem;
+  gap: 1.5rem;
+}
+
+.vl {
+  border-left: 6px solid rgb(207, 204, 204);
+  border-radius: 34px;
+  height: 63.5px;
+}
+
+.appointment-disc {
+  color: green;
+  font-size: medium;
+}
+
+.appointments-disc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appointment-subtitle,
+.appointment-time {
+  font-size: 12px;
+}
+
+.widgets {
+  display: flex;
+  align-items: center;
+}
+
+.overview-widgets {
+  padding: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.card-widgets {
+  display: flex;
+  padding: 10px 30px;
+  justify-content: space-between;
 }
