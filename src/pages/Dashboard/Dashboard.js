@@ -39,7 +39,12 @@ const Dashboard = () => {
           >
             <p className="notification-window-message">No new notifications!</p>
           </Menu>
-          <Button type="button" label="Emails" badge="8" />
+          <Button
+            type="button"
+            label="Emails"
+            badge="8"
+            onClick={() => window.open("http://gmail.com", "_blank")}
+          />
         </div>
       </div>
       <div className="overview-widgets">

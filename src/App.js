@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import AllEmployees from "./components/AllEmployees/AllEmployees";
@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Expenses from "./components/Expenses/Expenses";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NavBar from "./components/NavBar/NavBar";
-import SignUp from "./components/SignUp/SignUp";
+import SignUp from "./pages/SignUp/SignUp";
 import Team from "./components/Team/Team";
 import Vacation from "./components/Vacation/Vacation";
 import employeeService from "./services/employees";
@@ -67,7 +67,7 @@ const App = () => {
           ) : (
             <Route path="/" element={<LoginPage />} />
           )}
-          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route
             path="/login"
             element={
