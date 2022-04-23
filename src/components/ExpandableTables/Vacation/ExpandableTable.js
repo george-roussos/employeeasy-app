@@ -33,12 +33,14 @@ const ExpandableTable = ({ dataset }) => {
 
   const matches = !renderedDataset
     ? dataset
-    : dataset.filter((vacation) =>
-        vacation.employee.name
-          .toLowerCase()
-          .split(" ")[1]
-          .includes(globalFilterValue.toLowerCase())
-      );
+    : dataset
+        .filter((vacation) =>
+          vacation.employee.name
+            .toLowerCase()
+            .split(" ")[1]
+            .includes(globalFilterValue.toLowerCase())
+        )
+        .reverse(); // Reverse in order to display latest entries;
 
   const handleDelete = async (event) => {
     event.preventDefault();
@@ -99,11 +101,11 @@ const ExpandableTable = ({ dataset }) => {
       <React.Fragment>
         <span
           style={
-            status === "approved"
+            status === "Approved"
               ? { backgroundColor: "rgb(64, 163, 67)" }
-              : status === "pending"
+              : status === "Pending"
               ? { backgroundColor: "rgb(215, 213, 54)" }
-              : status === "rejected"
+              : status === "Rejected"
               ? { backgroundColor: "rgb(200, 44, 44)" }
               : null
           }
@@ -162,6 +164,10 @@ const ExpandableTable = ({ dataset }) => {
         <Button
           className="m-0"
           onClick={() => {
+            // Reset vacation so the form will re-render.
+            // This way the form comes up empty after an edit
+            // is abandoned.
+            setVacation({});
             setVacationModal(true);
             setMessage("New Vacation");
           }}
@@ -274,8 +280,9 @@ const ExpandableTable = ({ dataset }) => {
               open={editVacationModal}
               message={message}
               editMode={editMode}
-              vacation={vacation}
+              entry={vacation}
               onClose={() => setVacationModal(false)}
+              type={"vacation"}
             />
           </CSSTransition>
         </div>

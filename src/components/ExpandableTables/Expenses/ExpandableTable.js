@@ -33,12 +33,14 @@ const ExpandableTable = ({ dataset }) => {
 
   const matches = !renderedDataset
     ? dataset
-    : dataset.filter((expense) =>
-        expense.merchant
-          .toLowerCase()
-          .split(" ")[0]
-          .includes(globalFilterValue.toLowerCase())
-      );
+    : dataset
+        .filter((expense) =>
+          expense.merchant
+            .toLowerCase()
+            .split(" ")[0]
+            .includes(globalFilterValue.toLowerCase())
+        )
+        .reverse(); // Reverse in order to display latest entries;
 
   const handleDelete = async (event) => {
     event.preventDefault();
@@ -99,11 +101,11 @@ const ExpandableTable = ({ dataset }) => {
       <React.Fragment>
         <span
           style={
-            status === "paid"
+            status === "Approved"
               ? { backgroundColor: "rgb(64, 163, 67)" }
-              : status === "pending"
+              : status === "Pending"
               ? { backgroundColor: "rgb(215, 213, 54)" }
-              : status === "rejected"
+              : status === "Rejected"
               ? { backgroundColor: "rgb(200, 44, 44)" }
               : null
           }
@@ -173,6 +175,10 @@ const ExpandableTable = ({ dataset }) => {
         <Button
           className="m-0"
           onClick={() => {
+            // Reset expense so the form will re-render.
+            // This way the form comes up empty after an edit
+            // is abandoned.
+            setExpense({});
             setExpenseModal(true);
             setMessage("New Expense");
           }}
@@ -274,8 +280,9 @@ const ExpandableTable = ({ dataset }) => {
               open={editExpenseModal}
               message={message}
               editMode={editMode}
-              expense={expense}
+              entry={expense}
               onClose={() => setExpenseModal(false)}
+              type={"expense"}
             />
           </CSSTransition>
         </div>

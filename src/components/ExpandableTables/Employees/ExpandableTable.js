@@ -35,12 +35,14 @@ const ExpandableTable = ({ dataset }) => {
 
   const matches = !renderedDataset
     ? dataset
-    : dataset.filter((employee) =>
-        employee.name
-          .toLowerCase()
-          .split(" ")[1]
-          .includes(globalFilterValue.toLowerCase())
-      );
+    : dataset
+        .filter((employee) =>
+          employee.name
+            .toLowerCase()
+            .split(" ")[1]
+            .includes(globalFilterValue.toLowerCase())
+        )
+        .reverse(); // Reverse in order to display latest entries
 
   const handleDelete = async (event) => {
     event.preventDefault();
@@ -156,6 +158,10 @@ const ExpandableTable = ({ dataset }) => {
         <Button
           className="m-0"
           onClick={() => {
+            // Reset employee so the form will re-render.
+            // This way the form comes up empty after an edit
+            // is abandoned.
+            setEmployee({});
             setEditEntryModal(true);
             setMessage("New Employee");
           }}
@@ -263,6 +269,7 @@ const ExpandableTable = ({ dataset }) => {
               editMode={editMode}
               entry={employee}
               onClose={() => setEditEntryModal(false)}
+              type={"employee"}
             />
           </CSSTransition>
         </div>
