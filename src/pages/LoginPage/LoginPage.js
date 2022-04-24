@@ -5,7 +5,7 @@ import { setPassword, setUser, setUsername } from "../../reducers/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 import Avatar from "@mui/material/Avatar";
-import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControlLabel from "@mui/material/FormControlLabel";
 import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -119,7 +119,7 @@ const LoginPage = () => {
               marginTop: "10px",
             }}
             className="signup-message"
-            to="/sign-up"
+            to="/signup"
           >
             Don't have an account? Sign up
           </Link>
