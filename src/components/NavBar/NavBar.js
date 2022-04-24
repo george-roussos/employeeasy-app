@@ -77,7 +77,7 @@ const NavBar = ({ handleLogout }) => {
             </li>
             <li>
               <IoHelpBuoyOutline />
-              <Link to="/employees">Help</Link>
+              <Link to="/help-center">Help</Link>
             </li>
           </ul>
         ) : null}

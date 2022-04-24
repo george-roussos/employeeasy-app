@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AllEmployees from "./components/AllEmployees/AllEmployees";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Expenses from "./components/Expenses/Expenses";
+import Help from "./pages/Help/Help";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NavBar from "./components/NavBar/NavBar";
 import SignUp from "./pages/SignUp/SignUp";
@@ -82,6 +83,7 @@ const App = () => {
           <Route path="/my-team" element={<Team dataset={employees} />} />
           <Route path="/expenses" element={<Expenses dataset={expenses} />} />
           <Route path="/vacation" element={<Vacation dataset={vacation} />} />
+          <Route path="/help-center" element={<Help />} />
         </Routes>
       </BrowserRouter>
     </div>
