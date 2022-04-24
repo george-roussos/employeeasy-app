@@ -3,8 +3,10 @@ import "./Dashboard.css";
 import Birthday from "../../components/Widgets/Timeline";
 import Budget from "../../components/Widgets/TimeInMeetings";
 import { Button } from "primereact/button";
+import { Card } from "@mui/material";
+import { Grid } from "@mui/material";
 import { IoCarOutline } from "react-icons/io5";
-import LatestOrders from "../../components/Widgets/LatestRequests";
+import LatestRequests from "../../components/Widgets/LatestRequests";
 import { Menu } from "@szhsin/react-menu";
 import TasksProgress from "../../components/Widgets/TasksProgress";
 import TotalCustomers from "../../components/Widgets/OutsideRequests";
@@ -54,7 +56,7 @@ const Dashboard = () => {
         <TotalProfit />
       </div>
       <div className="card-widgets">
-        <LatestOrders />
+        <LatestRequests />
         <Birthday />
       </div>
     </div>

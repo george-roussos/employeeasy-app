@@ -98,3 +98,74 @@ nav .menu-btn {
   display: flex;
   align-items: center;
 }
+
+nav .logout-icon {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  nav {
+    width: 40px;
+  }
+  .link-text,
+  .divider {
+    display: none;
+  }
+  .link-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav .logo-container,
+  nav .controls-container {
+    display: none;
+  }
+}
+
+@media (max-width: 44em) {
+  nav {
+    max-width: 40px;
+    height: 120vh;
+  }
+  .link-text,
+  .divider {
+    display: none;
+  }
+  .link-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav .logo-container,
+  nav .controls-container,
+  nav .account-container {
+    display: none;
+  }
+  nav .logout-icon {
+    display: flex;
+  }
+}
+
+@media (max-width: 30em) {
+  nav {
+    max-width: 30px;
+    height: 130vh;
+  }
+  .link-text,
+  .divider {
+    display: none;
+  }
+  .link-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav .logo-container,
+  nav .controls-container,
+  nav .account-container {
+    display: none;
+  }
+  nav .logout-icon {
+    display: flex;
+  }
+}

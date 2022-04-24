@@ -15,10 +15,16 @@ import { requests } from "../../helpers/widgetHelper";
 export const LatestRequests = () => (
   <Card>
     <CardHeader title="Latest Requests" />
-    <Box sx={{ minWidth: 820 }}>
-      <Table>
+    <Box sx={{ width: "700", height: "300px", overflow: "auto" }}>
+      <Table
+        sx={{ width: "max-content", height: "max-content", overflow: "auto" }}
+      >
         <TableHead>
-          <TableRow>
+          <TableRow
+            style={{
+              backgroundColor: "#f5f5f5",
+            }}
+          >
             <TableCell>Project</TableCell>
             <TableCell>From</TableCell>
             <TableCell>Date</TableCell>

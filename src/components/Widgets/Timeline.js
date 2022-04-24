@@ -15,7 +15,7 @@ import { meetings } from "../../helpers/widgetHelper";
 
 const TimelineWidget = () => {
   return (
-    <Card sx={{ minWidth: 200 }}>
+    <Card sx={{ minWidth: 270, overflow: "scroll" }}>
       <CardContent>
         <Typography sx={{ fontSize: 20 }} color="text.primary">
           Today

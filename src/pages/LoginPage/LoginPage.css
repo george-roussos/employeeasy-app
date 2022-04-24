@@ -86,3 +86,7 @@ input {
 .signup-message:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 1200px) {
+  background-color: red;
+}

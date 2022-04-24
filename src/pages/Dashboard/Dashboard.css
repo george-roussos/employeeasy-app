@@ -9,7 +9,7 @@
 .top-header {
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 75%;
   gap: 12px;
   line-height: 6pt;
   color: rgb(83, 83, 83);
@@ -33,7 +33,7 @@
   flex: 1;
   align-items: center;
   gap: 12px;
-  font-size: 10px;
+  font-size: 62.5%;
   margin-right: 1.2rem;
 }
 
@@ -66,7 +66,7 @@
 }
 
 .time-icon {
-  font-size: 23px;
+  font-size: 143%;
   color: rgb(249, 178, 46);
 }
 
@@ -104,7 +104,7 @@
 
 .appointment-subtitle,
 .appointment-time {
-  font-size: 12px;
+  font-size: 75%;
 }
 
 .widgets {
@@ -123,4 +123,99 @@
   display: flex;
   padding: 10px 30px;
   justify-content: space-between;
+}
+
+@media (max-width: 84em) {
+  .dashboard {
+    max-width: 90%;
+  }
+  .overview-widgets {
+    gap: 1.2rem;
+    height: auto;
+  }
+  .card-widgets {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    height: 280px;
+  }
+}
+
+@media (max-width: 69em) {
+  .dashboard {
+    max-width: 83%;
+  }
+  .overview-widgets {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .card-widgets {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    height: 240px;
+  }
+}
+
+@media (max-width: 62em) {
+  .dashboard {
+    max-width: 80%;
+  }
+  .overview-widgets {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .card-widgets {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    height: 240px;
+  }
+}
+
+@media (max-width: 44em) {
+  .dashboard {
+    max-width: 90%;
+  }
+  .top-header-text {
+    font-size: 80%;
+  }
+  .overview-widgets {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .card-widgets {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    height: 240px;
+  }
+}
+
+@media (max-width: 40em) {
+  .dashboard {
+    max-width: 90%;
+  }
+  .top-header-text {
+    font-size: 70%;
+  }
+  .overview-widgets {
+    gap: 0.5rem;
+  }
+  .card-widgets {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 1.2rem;
+    height: 240px;
+  }
 }

@@ -9,6 +9,7 @@ import {
   IoDocumentsOutline,
   IoHelpBuoyOutline,
   IoHomeOutline,
+  IoLogOutOutline,
   IoNewspaperOutline,
   IoPeopleCircleOutline,
   IoPersonOutline,
@@ -36,27 +37,47 @@ const NavBar = ({ handleLogout }) => {
         {user ? (
           <ul className="links-list">
             <li>
-              <IoNewspaperOutline />
-              <Link to="/dashboard">Dashboard</Link>
+              <Link className="link-icon" to="/dashboard">
+                <IoNewspaperOutline />
+              </Link>
+              <Link className="link-text" to="/dashboard">
+                Dashboard
+              </Link>
             </li>
-            <span className="people-divider">People</span>
+            <span className="people-divider divider">People</span>
             <li>
-              <IoPersonOutline />
-              <Link to="/all-employees">Employees</Link>
-            </li>
-            <li>
-              <IoPeopleCircleOutline />
-              <Link to="/my-team">Team</Link>
-            </li>
-            <span></span>
-            <span className="people-divider">Events</span>
-            <li>
-              <IoCalendarOutline />
-              <Link to="/vacation">Vacation</Link>
+              <Link className="link-icon" to="/all-employees">
+                <IoPersonOutline />
+              </Link>
+              <Link className="link-text" to="/all-employees">
+                Employees
+              </Link>
             </li>
             <li>
-              <IoCardOutline />
-              <Link to="/expenses">Expenses</Link>
+              <Link className="link-icon" to="/my-team">
+                <IoPeopleCircleOutline />
+              </Link>
+              <Link className="link-text" to="/my-team">
+                Team
+              </Link>
+            </li>
+            <span></span>
+            <span className="people-divider divider">Events</span>
+            <li>
+              <Link className="link-icon" to="/vacation">
+                <IoCalendarOutline />
+              </Link>
+              <Link className="link-text" to="/vacation">
+                Vacation
+              </Link>
+            </li>
+            <li>
+              <Link className="link-icon" to="/expenses">
+                <IoCardOutline />
+              </Link>
+              <Link className="link-text" to="/expenses">
+                Expenses
+              </Link>
             </li>
             <span></span>
             <span></span>
@@ -65,14 +86,35 @@ const NavBar = ({ handleLogout }) => {
             <span></span>
             <span></span>
             <span></span>
-            <span className="company-divider">Control Panel</span>
+            <span className="company-divider divider">Control Panel</span>
             <li>
-              <IoSettingsOutline />
-              <Link to="/employees">Settings</Link>
+              <Link className="link-icon" to="/employees">
+                <IoSettingsOutline />
+              </Link>
+              <Link className="link-text" to="/employees">
+                Settings
+              </Link>
             </li>
             <li>
-              <IoHelpBuoyOutline />
-              <Link to="/help-center">Help</Link>
+              <Link className="link-icon" to="/help-center">
+                <IoHelpBuoyOutline />
+              </Link>
+              <Link className="link-text" to="/help-center">
+                Help
+              </Link>
+            </li>
+            <li className="logout-icon">
+              <Link className="link-icon" to="/login">
+                <IoLogOutOutline
+                  className="link-icon"
+                  onClick={() => {
+                    handleLogout();
+                  }}
+                />
+              </Link>
+              <Link className="link-text" to="/login">
+                Logout
+              </Link>
             </li>
           </ul>
         ) : null}
