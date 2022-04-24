@@ -60,17 +60,18 @@ const NavBar = ({ handleLogout }) => {
               <IoPeopleCircleOutline />
               <Link to="/my-team">Team</Link>
             </li>
-            <span className="company-divider">Company</span>
-            <li>
-              <IoHomeOutline />
-              <Link to="/employees">Company</Link>
-            </li>
-            <li>
-              <IoDocumentsOutline />
-              <Link to="/employees">Documents</Link>
-            </li>
             <span></span>
             <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span className="company-divider">Control Panel</span>
             <li>
               <IoSettingsOutline />
               <Link to="/employees">Settings</Link>
