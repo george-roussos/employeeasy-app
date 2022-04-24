@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Employeeasy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Employeeasy is a new web-app which streamlines managing of your employees, using a minimal UI that focuses on functionality and ease of use. Built with individual managers in mind, this app is a tool that lets you:
 
-## Available Scripts
+- Add your team to it
+- View all your employees in one place
+- Manage employees' vacation
+- Manage team expenses and link them to the corresponding employee
 
-In the project directory, you can run:
+Using the built-in dashboard, take a glance at your weekly overview, including your daily meetings and your average statistics.
 
-### `npm start`
+## Live Walkthrough
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![live walkthrough](./src/images/employeeasy-screens/Walkthrough.gif)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Demo
 
-### `npm test`
+If you want to give the app a go, a demo version can be found on [employeeasy.netlify.com](employeeasy.netlify.com). If you want to see it in action with some mock data (that is grabbed from the employeeasy server, which you can find [here](https://github.com/george-roussos/employeeasy-server), you can use the credentials:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- username: `malinholmgren`
+- password: `12345`
 
-### `npm run build`
+And you can browse through collections. You can also sign up for a new account. After signing up, use the same credentials to log into the environment. However, note that since the account will be new, you will have to create entries of employees, vacation etc. yourself.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Local Run
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone this repo and run `npm i`. The frontend will work, but for security reasons I have not included the credentials to connect to the MongoDB instance, so you will have to contact me and I will gladly work it out for you.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+Employeeasy is written on React, JS, HTML5 and CSS3.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Screenshots
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Below are some screenshots so you can get an idea of what the app looks like.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Login Page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ![login page](./src/images/employeeasy-screens/LoginPage.png)
 
-## Learn More
+### Dashboard
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## ![dashboard](./src/images/employeeasy-screens/DashboardPage.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### All Employees
 
-### Code Splitting
+## ![employees](./src/images/employeeasy-screens/EmployeeView.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Adding a new employee
 
-### Analyzing the Bundle Size
+## ![new employee](./src/images/employeeasy-screens/NewEmployee.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Vacation
 
-### Making a Progressive Web App
+## ![vacation](./src/images/employeeasy-screens/VacationView.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Help Center
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ![help center](./src/images/employeeasy-screens/HelpCenter.png)
