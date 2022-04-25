@@ -10,7 +10,7 @@ import { Toast } from "primereact/toast";
 import loginPhoto from "../../images/login-vector.svg";
 import { setNotification } from "../../reducers/messageReducer";
 import { setStyle } from "../../reducers/messageStyleReducer";
-import { useDispatch, } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import userService from "../../services/users";
 
@@ -146,7 +146,8 @@ const SignupForm = () => {
               justifyContent: "flex-end",
               color: "rgb(72, 72, 183)",
               textDecoration: "underline",
-              marginTop: "10px",
+              marginTop: "1rem",
+              fontSize: "1.2rem",
             }}
             className="signup-message"
             to="/login"

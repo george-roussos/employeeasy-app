@@ -116,7 +116,8 @@ const LoginPage = () => {
               justifyContent: "flex-end",
               color: "rgb(72, 72, 183)",
               textDecoration: "underline",
-              marginTop: "10px",
+              marginTop: "1rem",
+              fontSize: "1.2rem",
             }}
             className="signup-message"
             to="/signup"

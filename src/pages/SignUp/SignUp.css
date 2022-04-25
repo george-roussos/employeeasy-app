@@ -1,27 +1,33 @@
 .signup-form {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin: auto;
-  width: 75%;
-  background-color: white;
-  border-radius: 6px;
-  padding: 40px;
+  border-radius: 1rem;
+  padding-left: 13rem;
 }
 
 .signup-form-elements {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin: auto;
+}
+
+.signup-photo img {
+  width: 100%;
+  height: 30rem;
 }
 
 .signup-form form input,
 select {
-  padding: 10px;
-  font-size: 15px;
-  border-radius: 6px;
-  border: 1px solid rgb(218, 218, 218);
-  margin: 15px;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid rgb(218, 218, 218);
+  margin: 1.5rem;
   flex: 100%;
   transition: 0.2s;
 }
@@ -32,11 +38,6 @@ select {
 
 .signup-form #password {
   margin-bottom: 1rem;
-}
-
-.signup-photo img {
-  width: 30em;
-  height: 20em;
 }
 
 label,
@@ -51,28 +52,29 @@ input {
 }
 
 #signup-button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgb(72, 72, 183);
   color: #fff;
-  margin-top: 10px;
+  margin-top: 1rem;
 
   text-decoration: none;
   font-size: 1rem;
   font-weight: 600;
   padding: 0.5rem 0.9rem;
-  border-radius: 6px;
+  border-radius: 0.6rem;
 
-  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0.5rem 0.5rem 1rem 0.2rem rgba(0, 0, 0, 0.15);
 
-  /* Only necessary for .btn */
   border: none;
   cursor: pointer;
   font-family: inherit;
+  font-size: 1.7rem;
 
-  /* Put transition on original "state" */
-  /* transition: background-color 0.3s; */
   transition: all 0.3s;
   width: 100%;
+  gap: 1rem;
 }
 
 #signup-button:hover,
@@ -82,4 +84,10 @@ input {
 
 .signup-message:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 45em) {
+  .signup-form {
+    padding-left: 0;
+  }
 }
