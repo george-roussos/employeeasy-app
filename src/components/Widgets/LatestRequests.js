@@ -14,35 +14,42 @@ import { requests } from "../../helpers/widgetHelper";
 
 export const LatestRequests = () => (
   <Card>
-    <CardHeader title="Latest Requests" />
-    <Box sx={{ width: "700", height: "300px", overflow: "auto" }}>
-      <Table
-        sx={{ width: "max-content", height: "max-content", overflow: "auto" }}
-      >
+    <CardHeader
+      titleTypographyProps={{ variant: "h4" }}
+      title="Latest Requests"
+    />
+    <Box sx={{ width: "700", scroll: "auto" }}>
+      <Table>
         <TableHead>
           <TableRow
             style={{
               backgroundColor: "#f5f5f5",
             }}
           >
-            <TableCell>Project</TableCell>
-            <TableCell>From</TableCell>
-            <TableCell>Date</TableCell>
-            <TableCell>Assignee</TableCell>
-            <TableCell>Status</TableCell>
+            <TableCell sx={{ fontSize: "1.5rem" }}>Project</TableCell>
+            <TableCell sx={{ fontSize: "1.5rem" }}>From</TableCell>
+            <TableCell sx={{ fontSize: "1.5rem" }}>Date</TableCell>
+            <TableCell sx={{ fontSize: "1.5rem" }}>Assignee</TableCell>
+            <TableCell sx={{ fontSize: "1.5rem" }}>Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {requests.map((request) => (
             <TableRow hover key={request.id}>
-              <TableCell>{request.ref}</TableCell>
-              <TableCell>{request.from.name}</TableCell>
-              <TableCell>{request.createdAt}</TableCell>
-              <TableCell>{request.assignee}</TableCell>
-              <TableCell>
+              <TableCell sx={{ fontSize: "1.5rem" }}>{request.ref}</TableCell>
+              <TableCell sx={{ fontSize: "1.5rem" }}>
+                {request.from.name}
+              </TableCell>
+              <TableCell sx={{ fontSize: "1.5rem" }}>
+                {request.createdAt}
+              </TableCell>
+              <TableCell sx={{ fontSize: "1.5rem" }}>
+                {request.assignee}
+              </TableCell>
+              <TableCell sx={{ fontSize: "1.5rem" }}>
                 <CircleIcon
                   style={{
-                    fontSize: "10px",
+                    fontSize: "1rem",
                     color:
                       request.status === "active"
                         ? "lightblue"

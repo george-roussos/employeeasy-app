@@ -11,11 +11,16 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import PeopleIcon from "@mui/icons-material/PeopleOutlined";
 
 export const TotalCustomers = (props) => (
-  <Card {...props}>
+  <Card>
     <CardContent>
       <Grid container spacing={3} sx={{ justifyContent: "space-between" }}>
         <Grid item>
-          <Typography color="textSecondary" gutterBottom variant="overline">
+          <Typography
+            style={{ fontSize: "1.5rem" }}
+            color="textSecondary"
+            gutterBottom
+            variant="overline"
+          >
             OUTSIDE REQUESTS
           </Typography>
           <Typography color="textPrimary" variant="h4">
@@ -43,6 +48,7 @@ export const TotalCustomers = (props) => (
       >
         <ArrowDownwardIcon color="success" />
         <Typography
+          style={{ fontSize: "1.5rem" }}
           variant="body2"
           sx={{
             mr: 1,
@@ -50,7 +56,11 @@ export const TotalCustomers = (props) => (
         >
           16%
         </Typography>
-        <Typography color="textSecondary" variant="caption">
+        <Typography
+          style={{ fontSize: "1.5rem" }}
+          color="textSecondary"
+          variant="caption"
+        >
           Since last month
         </Typography>
       </Box>

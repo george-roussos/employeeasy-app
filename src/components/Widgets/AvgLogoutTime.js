@@ -7,7 +7,12 @@ export const TotalProfit = (props) => (
     <CardContent>
       <Grid container spacing={3} sx={{ justifyContent: "space-between" }}>
         <Grid item>
-          <Typography color="textSecondary" gutterBottom variant="overline">
+          <Typography
+            style={{ fontSize: "1.5rem" }}
+            color="textSecondary"
+            gutterBottom
+            variant="overline"
+          >
             AVG LOGOUT TIME
           </Typography>
           <Typography color="textPrimary" variant="h4">

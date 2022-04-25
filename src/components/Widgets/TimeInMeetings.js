@@ -11,11 +11,16 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 
 export const Budget = (props) => (
-  <Card sx={{ height: "100%" }} {...props}>
+  <Card>
     <CardContent>
       <Grid container spacing={3} sx={{ justifyContent: "space-between" }}>
         <Grid item>
-          <Typography color="textSecondary" gutterBottom variant="overline">
+          <Typography
+            style={{ fontSize: "1.5rem" }}
+            color="textSecondary"
+            gutterBottom
+            variant="overline"
+          >
             TIME IN MEETINGS
           </Typography>
           <Typography color="textPrimary" variant="h4">
@@ -43,6 +48,7 @@ export const Budget = (props) => (
       >
         <ArrowUpwardIcon color="error" />
         <Typography
+          style={{ fontSize: "1.5rem" }}
           color="error"
           sx={{
             mr: 1,
@@ -51,7 +57,11 @@ export const Budget = (props) => (
         >
           1%
         </Typography>
-        <Typography color="textSecondary" variant="caption">
+        <Typography
+          style={{ fontSize: "1.5rem" }}
+          color="textSecondary"
+          variant="caption"
+        >
           Since last week
         </Typography>
       </Box>

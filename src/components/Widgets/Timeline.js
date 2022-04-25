@@ -17,20 +17,25 @@ const TimelineWidget = () => {
   return (
     <Card sx={{ minWidth: 270, overflow: "scroll" }}>
       <CardContent>
-        <Typography sx={{ fontSize: 20 }} color="text.primary">
+        <Typography sx={{ fontSize: "2rem" }} color="text.primary">
           Today
         </Typography>
         <Timeline position="alternate">
           {meetings.map((meeting) => (
             <TimelineItem>
-              <TimelineOppositeContent color="text.secondary">
+              <TimelineOppositeContent
+                sx={{ fontSize: "1.5rem" }}
+                color="text.secondary"
+              >
                 {meeting.time}
               </TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color={meeting.priority} />
                 <TimelineConnector />
               </TimelineSeparator>
-              <TimelineContent>{meeting.title}</TimelineContent>
+              <TimelineContent sx={{ fontSize: "1.5rem" }}>
+                {meeting.title}
+              </TimelineContent>
             </TimelineItem>
           ))}
         </Timeline>

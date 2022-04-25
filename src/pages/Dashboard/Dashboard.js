@@ -1,11 +1,12 @@
 import "./Dashboard.css";
 
+import { IoCarOutline, IoNotificationsOutline } from "react-icons/io5";
+
 import Birthday from "../../components/Widgets/Timeline";
 import Budget from "../../components/Widgets/TimeInMeetings";
 import { Button } from "primereact/button";
 import { Card } from "@mui/material";
 import { Grid } from "@mui/material";
-import { IoCarOutline } from "react-icons/io5";
 import LatestRequests from "../../components/Widgets/LatestRequests";
 import { Menu } from "@szhsin/react-menu";
 import TasksProgress from "../../components/Widgets/TasksProgress";
@@ -33,7 +34,7 @@ const Dashboard = () => {
             menuButton={
               <Button
                 icon="pi pi-bell"
-                className="p-button-rounded p-button-warning p-button-text"
+                className="p-button-rounded p-button-warning p-button-text p-button-lg"
                 aria-label="Notification"
               />
             }

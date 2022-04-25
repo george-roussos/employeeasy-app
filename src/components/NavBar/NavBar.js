@@ -61,7 +61,7 @@ const NavBar = ({ handleLogout }) => {
                 Team
               </Link>
             </li>
-            <span></span>
+            <span className="empty-span"></span>
             <span className="people-divider divider">Events</span>
             <li>
               <Link className="link-icon" to="/vacation">
@@ -79,15 +79,15 @@ const NavBar = ({ handleLogout }) => {
                 Expenses
               </Link>
             </li>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span className="company-divider divider">Control Panel</span>
-            <li>
+            <span className="empty-span"></span>
+            <span className="empty-span"></span>
+            <span className="empty-span"></span>
+            <span className="empty-span"></span>
+            <span className="empty-span"></span>
+            <span className="empty-span"></span>
+            <span className="empty-span"></span>
+            <span className="control-panel-divider">Control Panel</span>
+            <li className="settings-link">
               <Link className="link-icon" to="/employees">
                 <IoSettingsOutline />
               </Link>
@@ -95,7 +95,7 @@ const NavBar = ({ handleLogout }) => {
                 Settings
               </Link>
             </li>
-            <li>
+            <li className="help-link">
               <Link className="link-icon" to="/help-center">
                 <IoHelpBuoyOutline />
               </Link>

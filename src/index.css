@@ -1,15 +1,22 @@
-html,
-body {
+* {
   margin: 0;
   padding: 0;
+}
+
+html,
+body {
   font-family: "Rubik", sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: rgb(244, 242, 242);
 }
 
+html {
+  font-size: 62.5%;
+}
+
 .app {
   display: flex;
-  width: 100% auto;
+  font-size: 2rem;
 }
 
 a:link,
@@ -58,4 +65,11 @@ a {
 .blocked {
   display: flex;
   text-transform: uppercase;
+}
+
+@media (max-width: 40em) {
+  .app {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
