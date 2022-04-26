@@ -15,7 +15,8 @@ html {
 }
 
 .app {
-  display: flex;
+  display: grid;
+  grid-template-columns: 17rem 1fr;
   font-size: 2rem;
 }
 
@@ -67,7 +68,13 @@ a {
   text-transform: uppercase;
 }
 
-@media (max-width: 40em) {
+@media (max-width: 59em) {
+  .app {
+    grid-template-columns: 15rem 1fr;
+  }
+}
+
+@media (max-width: 45em) {
   .app {
     display: flex;
     flex-direction: column-reverse;

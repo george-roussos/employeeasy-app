@@ -6,6 +6,7 @@ nav {
   overflow: scroll;
   max-width: 17rem;
   position: fixed;
+  grid-column: 1;
 }
 
 .logo-container img {
@@ -84,10 +85,9 @@ nav .account-container {
   margin-left: 15px;
 }
 
-@media (max-width: 63em) {
+@media (max-width: 59em) {
   nav {
-    max-width: 10rem;
-    font-size: 1.3rem;
+    max-width: 14rem;
   }
 }
 
