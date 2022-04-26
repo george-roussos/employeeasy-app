@@ -8,7 +8,7 @@ const Team = ({ dataset }) => {
   const user = useSelector((state) => state.user.user);
 
   return (
-    <div className="dataset-info">
+    <div className="header">
       <div className="titles">
         <h1>Team</h1>
         <h5>Displaying information for your team.</h5>

@@ -1,0 +1,91 @@
+.dataset-info {
+  margin-top: 2.6rem;
+}
+
+h4 {
+  margin-bottom: 0.9rem;
+}
+
+.p-datatable .p-component {
+  font-size: 1.8rem;
+}
+
+.p-datatable .p-datatable-tbody > tr {
+  font-size: 1.8rem;
+}
+
+.pi {
+  font-size: 1.2rem;
+}
+
+.action-buttons .pi {
+  font-size: 1.5rem;
+}
+
+.p-datatable .p-component {
+  font-size: 1.8rem;
+}
+.p-button.p-button-icon-only {
+  width: 4rem;
+  height: 4rem;
+}
+
+.p-datatable .p-paginator .p-paginator-first,
+.p-datatable .p-paginator .p-paginator-prev,
+.p-datatable .p-paginator .p-paginator-pages .p-paginator-page,
+.p-datatable .p-paginator .p-paginator-next,
+.p-datatable .p-paginator .p-paginator-last,
+.p-datatable .p-paginator .p-paginator-rpp-options {
+  font-size: 1.8rem !important;
+}
+
+.p-datatable .p-paginator .p-paginator-current {
+  font-size: 1.8rem !important;
+}
+
+.new-entry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.input > p-inputtext > p-component {
+  width: 3rem;
+}
+
+.status-text {
+  text-transform: uppercase;
+  color: rgb(254, 254, 254);
+  padding: 5px;
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+table img {
+  display: flex;
+  align-items: center;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.table-container {
+  margin: auto;
+  width: 90%;
+  padding: 20px 20px;
+  background-color: white;
+  border-radius: 13px;
+}
+
+@media (max-width: 39em) {
+  .new-entry-text {
+    display: none;
+  }
+  .p-inputtext {
+    width: 9rem;
+  }
+}

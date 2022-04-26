@@ -1,4 +1,4 @@
-import "./ExpandableTable.css";
+import "../ExpandableTable.css";
 
 import React, { useEffect, useRef, useState } from "react";
 import { showError, showSuccess } from "../../../helpers/tableHelper";
@@ -102,11 +102,11 @@ const ExpandableTable = ({ dataset }) => {
         <span
           style={
             status === "Approved"
-              ? { backgroundColor: "rgb(64, 163, 67)" }
+              ? { backgroundColor: "rgb(64, 163, 67)", fontSize: "1.3rem" }
               : status === "Pending"
-              ? { backgroundColor: "rgb(215, 213, 54)" }
+              ? { backgroundColor: "rgb(215, 213, 54)", fontSize: "1.3rem" }
               : status === "Rejected"
-              ? { backgroundColor: "rgb(200, 44, 44)" }
+              ? { backgroundColor: "rgb(200, 44, 44)", fontSize: "1.3rem" }
               : null
           }
           className="status-text"
@@ -150,7 +150,7 @@ const ExpandableTable = ({ dataset }) => {
   const rowExpansionTemplate = (data) => {
     return (
       <div>
-        <h5>Vacation Information</h5>
+        <h4>Vacation Information</h4>
         <DataTable value={[data]} responsiveLayout="scroll">
           <Column field="daysLeft" header="Vacation Days Left" sortable />
         </DataTable>
@@ -172,7 +172,12 @@ const ExpandableTable = ({ dataset }) => {
             setMessage("New Vacation");
           }}
         >
-          <IoAddOutline /> New Vacation
+          <div className="new-entry">
+            <div className="plus-icon" style={{ display: "flex" }}>
+              <IoAddOutline />
+            </div>
+            <span className="new-entry-text">New Vacation</span>
+          </div>
         </Button>
         <span className="p-input-icon-left">
           <i className="pi pi-search" />

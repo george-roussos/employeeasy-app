@@ -68,15 +68,17 @@ a {
   text-transform: uppercase;
 }
 
-@media (max-width: 59em) {
+/* @media (max-width: 57em) {
   .app {
-    grid-template-columns: 15rem 1fr;
+    grid-template-columns: 13rem 1fr;
+    margin-bottom: 5rem;
   }
-}
+} */
 
-@media (max-width: 45em) {
+@media (max-width: 57em) {
   .app {
     display: flex;
     flex-direction: column-reverse;
+    margin-bottom: 5rem;
   }
 }

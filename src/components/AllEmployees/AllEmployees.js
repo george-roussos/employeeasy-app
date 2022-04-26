@@ -5,7 +5,7 @@ import React from "react";
 
 const AllEmployees = ({ dataset }) => {
   return (
-    <div className="dataset-info">
+    <div className="header">
       <div className="titles">
         <h1>Employees</h1>
         <h5>

@@ -1,4 +1,4 @@
-import "./ExpandableTable.css";
+import "../ExpandableTable.css";
 
 import React, { useEffect, useRef, useState } from "react";
 import { showError, showSuccess } from "../../../helpers/tableHelper";
@@ -141,7 +141,7 @@ const ExpandableTable = ({ dataset }) => {
   const rowExpansionTemplate = (data) => {
     return (
       <div>
-        <h5>Employee Information</h5>
+        <h4>Employee Information</h4>
         <DataTable value={[data]} responsiveLayout="scroll">
           <Column field="country" header="Country" body={countryBodyTemplate} />
           <Column field="department" header="Department" />
@@ -166,9 +166,14 @@ const ExpandableTable = ({ dataset }) => {
             setMessage("New Employee");
           }}
         >
-          <IoAddOutline /> New Employee
+          <div className="new-entry">
+            <div className="plus-icon" style={{ display: "flex" }}>
+              <IoAddOutline />
+            </div>
+            <span className="new-entry-text">New Employee</span>
+          </div>
         </Button>
-        <span className="p-input-icon-left">
+        <span className="p-input-icon-left search-bar">
           <i className="pi pi-search" />
           <InputText
             value={globalFilterValue}
@@ -222,7 +227,7 @@ const ExpandableTable = ({ dataset }) => {
             <Column
               header="Actions"
               body={(data, props) => (
-                <div style={{ display: "flex" }}>
+                <div className="action-buttons" style={{ display: "flex" }}>
                   <Button
                     icon="pi pi-user-edit"
                     className="mr-2"

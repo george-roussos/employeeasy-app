@@ -80,20 +80,14 @@ nav .account-container {
   margin-top: 11rem;
   display: flex;
   align-items: center;
-  height: 60px;
-  gap: 14px;
-  margin-left: 15px;
+  height: 6rem;
+  gap: 1.4rem;
+  margin-left: 1.5rem;
 }
 
-@media (max-width: 59em) {
+@media (max-width: 57em) {
   nav {
-    max-width: 14rem;
-  }
-}
-
-@media (max-width: 45em) {
-  nav {
-    max-width: 100vh;
+    max-width: 150vh;
     font-size: 1.3rem;
     height: 6.2rem;
     bottom: 0;
