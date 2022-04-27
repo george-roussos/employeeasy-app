@@ -3,9 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
   border-radius: 1rem;
-  padding-left: 13rem;
+  grid-column: 2;
+  background-color: rgb(255, 255, 255);
 }
 
 .signup-form-elements {
@@ -18,7 +18,7 @@
 
 .signup-photo img {
   width: 100%;
-  height: 30rem;
+  height: 29.3rem;
 }
 
 .signup-form form input,
@@ -86,8 +86,8 @@ input {
   text-decoration: underline;
 }
 
-@media (max-width: 45em) {
+@media (max-width: 57em) {
   .signup-form {
-    padding-left: 0;
+    z-index: 1;
   }
 }
