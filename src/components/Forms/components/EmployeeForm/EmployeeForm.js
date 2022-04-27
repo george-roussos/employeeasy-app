@@ -109,7 +109,11 @@ const EmployeeForm = ({ employee, onClose }) => {
       </Box>
       <Form
         onSubmit={handleSubmit}
-        style={{ display: "flex", alignItems: "center", marginLeft: "2rem" }}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          marginLeft: "2rem",
+        }}
       >
         <Grid container>
           <Grid item xs={6}>
