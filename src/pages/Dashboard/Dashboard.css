@@ -27,16 +27,6 @@
   font-size: 1.9rem;
 }
 
-.top-header .bell,
-.top-header .notification-window-message {
-  font-size: 1.3rem;
-}
-
-.top-header .bell {
-  color: rgb(249, 178, 46);
-  cursor: pointer;
-}
-
 .header-buttons {
   display: flex;
   justify-content: flex-end;
@@ -44,7 +34,6 @@
   align-items: center;
   gap: 1.2rem;
   margin-right: 1.2rem;
-  font-size: 3rem;
 }
 
 .header-icon {
@@ -58,12 +47,11 @@
 }
 
 .notification-window-message {
-  font-size: 1rem;
+  font-size: 1.5rem;
   padding: 1.5rem;
 }
 
 .overview-widgets {
-  max-width: 100%;
   padding: 3rem;
   display: flex;
   justify-content: space-between;
