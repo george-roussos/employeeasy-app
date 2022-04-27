@@ -89,3 +89,8 @@ table img {
     width: 9rem;
   }
 }
+
+.p-toast {
+  font-size: 1.5rem;
+  width: 26rem;
+}
