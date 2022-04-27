@@ -120,7 +120,9 @@ const NavBar = ({ handleLogout }) => {
         ) : null}
       </div>
       <div className="account-container">
-        <img src={user ? user.user.avatar : blank} alt={"photo of user"} />
+        {user ? (
+          <img src={user ? user.user.avatar : null} alt={"photo of user"} />
+        ) : null}
         <p>{user ? user.user.name.split(" ")[0] : null}</p>
         {user ? (
           <Menu
