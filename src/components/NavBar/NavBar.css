@@ -111,6 +111,10 @@ nav .account-container {
     padding: 0.6rem;
     justify-content: space-between;
   }
+  .links-list > li:hover {
+    border-radius: 0.3rem;
+    margin-top: -1rem;
+  }
   .empty-span,
   .links-list .settings-link,
   .links-list .help-link,
