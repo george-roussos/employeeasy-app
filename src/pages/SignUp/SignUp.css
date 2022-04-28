@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 1rem;
   grid-column: 2;
   background-color: rgb(255, 255, 255);
 }
@@ -18,7 +17,8 @@
 
 .signup-photo img {
   width: 100%;
-  height: 29.3rem;
+  height: 14.5rem;
+  margin-left: 0.7rem;
 }
 
 .signup-form form input,
@@ -89,5 +89,6 @@ input {
 @media (max-width: 57em) {
   .signup-form {
     z-index: 1;
+    padding: 1.7rem;
   }
 }

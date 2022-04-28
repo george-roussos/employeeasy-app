@@ -72,7 +72,6 @@ a {
 @media (max-width: 57em) {
   .app {
     display: flex;
-    flex-direction: column-reverse;
-    margin-bottom: 5rem;
+    flex-direction: column;
   }
 }
