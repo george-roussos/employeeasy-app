@@ -101,6 +101,7 @@ h6 {
 
 @media (max-width: 45em) {
   .help-center-container {
+    padding: 0;
     z-index: 0;
   }
   .questions-set {
