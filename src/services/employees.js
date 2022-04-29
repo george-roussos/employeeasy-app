@@ -1,5 +1,7 @@
+import { SERVER } from "../config";
 import axios from "axios";
-const baseUrl = "http://localhost:3001/api/employees";
+
+const baseUrl = `${SERVER}employees`;
 
 let token = null;
 

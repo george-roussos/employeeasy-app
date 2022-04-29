@@ -1,5 +1,6 @@
+import { SERVER } from "../config";
 import axios from "axios";
-const baseUrl = "http://localhost:3001/api/expenses";
+const baseUrl = `${SERVER}expenses`;
 
 const getAllExpenses = () => {
   const request = axios.get(baseUrl);
