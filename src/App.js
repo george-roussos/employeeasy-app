@@ -64,7 +64,7 @@ const App = () => {
         <NavBar handleLogout={handleLogOut} />
         <Routes>
           {user ? (
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard user={user} />} />
           ) : (
             <Route path="/" element={<LoginPage />} />
           )}
@@ -75,12 +75,15 @@ const App = () => {
               <LoginPage user={user} username={username} password={password} />
             }
           />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route
             path="/all-employees"
             element={<AllEmployees dataset={employees} />}
           />
-          <Route path="/my-team" element={<Team dataset={employees} />} />
+          <Route
+            path="/my-team"
+            element={<Team dataset={employees} user={user} />}
+          />
           <Route path="/expenses" element={<Expenses dataset={expenses} />} />
           <Route path="/vacation" element={<Vacation dataset={vacation} />} />
           <Route path="/help-center" element={<Help />} />
