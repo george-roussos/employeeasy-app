@@ -9,6 +9,16 @@ Employeeasy is a new web-app which streamlines managing of your employees, using
 
 Using the built-in dashboard, take a glance at your weekly overview, including your daily meetings and your average statistics.
 
+## Demo
+A demo version of the application, which you can try out, is deployed [here](employeeasy.netlify.com). You can login using the following credentials:
+
+- username: *malinholmgren*
+- password: *12345*
+
+You are also free to create your own personal account. After signing up, use the same credentials to log into the environment. In that case, note that: 
+* you should probably not use personal information when signing up, for security reasons
+* you will only be able to see employees in the database which are linked under other existing accounts
+
 ## Live Walkthrough
 
 ![live walkthrough](./src/images/employeeasy-screens/Walkthrough.gif)
