@@ -6,9 +6,7 @@ import {
   IoCalendarOutline,
   IoCardOutline,
   IoChevronUp,
-  IoDocumentsOutline,
   IoHelpBuoyOutline,
-  IoHomeOutline,
   IoLogOutOutline,
   IoNewspaperOutline,
   IoPeopleCircleOutline,
@@ -18,7 +16,6 @@ import {
 import { Menu, MenuItem } from "@szhsin/react-menu";
 
 import { Link } from "react-router-dom";
-import blank from "../../images/blank-profile.png";
 import logo from "../../images/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
