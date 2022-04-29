@@ -21,8 +21,8 @@ const TimelineWidget = () => {
           Today
         </Typography>
         <Timeline position="alternate">
-          {meetings.map((meeting) => (
-            <TimelineItem>
+          {meetings.map((meeting, index) => (
+            <TimelineItem key={index}>
               <TimelineOppositeContent
                 sx={{ fontSize: "1.5rem" }}
                 color="text.secondary"
