@@ -2,11 +2,8 @@ import "./Team.css";
 
 import ExpandableTable from "../ExpandableTables/Employees/ExpandableTable";
 import React from "react";
-import { useSelector } from "react-redux";
 
-const Team = ({ dataset }) => {
-  const user = useSelector((state) => state.user.user);
-
+const Team = ({ dataset, user }) => {
   return (
     <div className="header">
       <div className="titles">

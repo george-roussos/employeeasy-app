@@ -1,22 +1,16 @@
 import "./Dashboard.css";
 
-import { IoCarOutline, IoNotificationsOutline } from "react-icons/io5";
-
-import Birthday from "../../components/Widgets/Timeline";
 import Budget from "../../components/Widgets/TimeInMeetings";
 import { Button } from "primereact/button";
-import { Card } from "@mui/material";
-import { Grid } from "@mui/material";
+import { IoCarOutline } from "react-icons/io5";
 import LatestRequests from "../../components/Widgets/LatestRequests";
 import { Menu } from "@szhsin/react-menu";
 import TasksProgress from "../../components/Widgets/TasksProgress";
+import Timeline from "../../components/Widgets/Timeline";
 import TotalCustomers from "../../components/Widgets/OutsideRequests";
 import TotalProfit from "../../components/Widgets/AvgLogoutTime";
-import { useSelector } from "react-redux";
 
-const Dashboard = () => {
-  const user = useSelector((state) => state.user.user);
-
+const Dashboard = ({ user }) => {
   if (!user) return null;
 
   return (
@@ -58,7 +52,7 @@ const Dashboard = () => {
       </div>
       <div className="card-widgets">
         <LatestRequests />
-        <Birthday />
+        <Timeline />
       </div>
     </div>
   );
