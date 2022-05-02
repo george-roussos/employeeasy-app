@@ -5,9 +5,9 @@ import { setPassword, setUser, setUsername } from "../../reducers/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 import Avatar from "@mui/material/Avatar";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import LoadingBackdrop from "../../components/Backdrop/Backdrop";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Message from "../../components/Message/Message";
 import { Toast } from "primereact/toast";
@@ -24,6 +24,7 @@ const LoginPage = () => {
 
   const [formUsername, setFormUsername] = useState(null);
   const [formPassword, setFormPassword] = useState(null);
+  const [backdrop, setBackdrop] = useState(false);
 
   const toast = useRef(null);
 
@@ -36,6 +37,7 @@ const LoginPage = () => {
 
     if (formUsername && formPassword) {
       try {
+        setBackdrop(true);
         const user = await loginService.login({
           username,
           password,
@@ -48,13 +50,8 @@ const LoginPage = () => {
         dispatch(setUser(user));
         dispatch(setUsername(user.username));
         dispatch(setPassword(""));
-        toast.current.show({
-          severity: "info",
-          summary: `Welcome ${user.user.name.split(" ")[0]}!`,
-          detail: "You are being redirected to the environment",
-          life: 1000,
-        });
-        setTimeout(() => navigate("/dashboard"), 1500);
+        setBackdrop(false);
+        navigate("/dashboard");
       } catch (exception) {
         dispatch(setNotification("Wrong username or password", 10));
         dispatch(setStyle("error", 10));
@@ -106,6 +103,7 @@ const LoginPage = () => {
               />
             </div>
             <Message />
+            {backdrop && <LoadingBackdrop />}
             <button id="login-button" type="submit">
               <IoPersonOutline /> SIGN IN
             </button>
