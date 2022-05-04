@@ -55,7 +55,6 @@ const ExpandableTable = ({ dataset }) => {
       dispatch(setVacation(vacations));
       showSuccess(toast, "Removed entry");
     } catch (error) {
-      console.log(error);
       showError(toast, "Unauthorized action");
     }
   };
