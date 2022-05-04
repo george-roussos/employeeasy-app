@@ -1,8 +1,7 @@
 import "./Help.css";
 
-import { IoChevronDownOutline, IoChevronForwardOutline } from "react-icons/io5";
-
 import { InputText } from "primereact/inputtext";
+import { IoChevronDownOutline } from "react-icons/io5";
 import React from "react";
 import helpPhoto from "../../images/help-center.svg";
 import infoIcon from "../../images/information.png";

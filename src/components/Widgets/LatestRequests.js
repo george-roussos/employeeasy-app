@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 
 import CircleIcon from "@mui/icons-material/Circle";
-import { makeStyles } from "@material-ui/core/styles";
 import { requests } from "../../helpers/widgetHelper";
 
 const LatestRequests = () => {

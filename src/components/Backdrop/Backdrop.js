@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import Backdrop from "@mui/material/Backdrop";
-import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const LoadingBackdrop = () => {
