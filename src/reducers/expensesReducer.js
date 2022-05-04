@@ -14,7 +14,7 @@ const expenseSlice = createSlice({
   },
 });
 
-export const { appendExpense, setExpenses } = expenseSlice.actions;
+export const { setExpenses } = expenseSlice.actions;
 
 export const createExpense = (content) => {
   return async (dispatch) => {
