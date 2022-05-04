@@ -112,11 +112,11 @@ const EmployeeForm = ({ employee, onClose }) => {
         style={{
           display: "flex",
           alignItems: "center",
-          marginLeft: "2rem",
+          marginLeft: "5rem",
         }}
       >
-        <Grid container>
-          <Grid item xs={6}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
             <Controls.Input
               name="name"
               label="Full Name"
@@ -153,7 +153,7 @@ const EmployeeForm = ({ employee, onClose }) => {
               error={errors.avatar}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Controls.Select
               name="department"
               label="Department"
@@ -183,7 +183,13 @@ const EmployeeForm = ({ employee, onClose }) => {
               value={values.startDate}
               onChange={handleInputChange}
             />
-            <div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "3rem",
+              }}
+            >
               <Controls.Button type="submit" text="Submit" />
               <Controls.Button
                 text="Reset"

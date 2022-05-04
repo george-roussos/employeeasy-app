@@ -99,10 +99,14 @@ const ExpenseForm = ({ expense, onClose }) => {
       </Box>
       <Form
         onSubmit={handleSubmit}
-        style={{ display: "flex", alignItems: "center", marginLeft: "2rem" }}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          marginLeft: "5rem",
+        }}
       >
-        <Grid container>
-          <Grid item xs={6}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
             <Controls.DatePicker
               name="date"
               label="Expense Date"
@@ -138,7 +142,7 @@ const ExpenseForm = ({ expense, onClose }) => {
               error={errors.employee}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Controls.Select
               name="status"
               label="Status"
@@ -151,7 +155,13 @@ const ExpenseForm = ({ expense, onClose }) => {
               ]}
               error={errors.status}
             />
-            <div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "3rem",
+              }}
+            >
               <Controls.Button type="submit" text="Submit" />
               <Controls.Button
                 text="Reset"
