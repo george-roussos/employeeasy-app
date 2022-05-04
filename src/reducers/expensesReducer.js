@@ -7,10 +7,6 @@ const expenseSlice = createSlice({
   name: "expenses",
   initialState,
   reducers: {
-    appendExpense(state, action) {
-      const content = action.payload;
-      state.push(content);
-    },
     setExpenses(state, action) {
       const content = action.payload;
       return content;
@@ -31,14 +27,6 @@ export const createExpense = (content) => {
 export const editExpense = (content, id) => {
   return async (dispatch) => {
     await expensesService.editExpense(content, id);
-    const expenses = await expensesService.getAllExpenses();
-    dispatch(setExpenses(expenses));
-  };
-};
-
-export const removeExpense = (id) => {
-  return async (dispatch) => {
-    await expensesService.remove(id);
     const expenses = await expensesService.getAllExpenses();
     dispatch(setExpenses(expenses));
   };

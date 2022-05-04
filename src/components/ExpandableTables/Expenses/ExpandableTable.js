@@ -1,6 +1,6 @@
 import "../ExpandableTable.css";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { showError, showSuccess } from "../../../helpers/tableHelper";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,14 +14,15 @@ import { InputText } from "primereact/inputtext";
 import { IoAddOutline } from "react-icons/io5";
 import { ProgressSpinner } from "primereact/progressspinner";
 import { Toast } from "primereact/toast";
-import { removeExpense } from "../../../reducers/expensesReducer";
+import expensesService from "../../../services/expenses";
 import { setEditMode } from "../../../reducers/modalReducer";
+import { setExpenses } from "../../../reducers/expensesReducer";
 
 const ExpandableTable = ({ dataset }) => {
+  const toast = useRef(null);
+
   const dispatch = useDispatch();
   const [expandedRows, setExpandedRows] = useState(null);
-  const toast = useRef(null);
-  const isMounted = useRef(false);
   const [globalFilterValue, setGlobalFilterValue] = useState("");
   const [renderedDataset, setRenderedDataset] = useState([]);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -44,12 +45,17 @@ const ExpandableTable = ({ dataset }) => {
 
   const handleDelete = async (event) => {
     event.preventDefault();
+    // This is not elegant, but is the easiest way to
+    // show the correct toast. It avoids re-rendering
+    // the toast while the table is updating and it
+    // only relies on the kind of response.
     try {
-      dispatch(removeExpense(expense._id));
-      showSuccess();
-    } catch (exception) {
-      console.log(exception);
-      showError();
+      await expensesService.remove(expense._id);
+      const expenses = await expensesService.getAllExpenses();
+      dispatch(setExpenses(expenses));
+      showSuccess(toast, "Removed entry");
+    } catch (error) {
+      showError(toast, "Unauthorized action");
     }
   };
 
@@ -117,36 +123,6 @@ const ExpandableTable = ({ dataset }) => {
     );
   };
 
-  useEffect(() => {
-    if (isMounted.current) {
-      const summary =
-        expandedRows !== null ? "All Rows Expanded" : "All Rows Collapsed";
-      toast.current.show({
-        severity: "success",
-        summary: `${summary}`,
-        life: 3000,
-      });
-    }
-  }, [expandedRows]);
-
-  const onRowExpand = (event) => {
-    toast.current.show({
-      severity: "info",
-      summary: "Showing information for:",
-      detail: event.data.date,
-      life: 1000,
-    });
-  };
-
-  const onRowCollapse = (event) => {
-    toast.current.show({
-      severity: "success",
-      summary: "Hid information",
-      detail: event.data.date,
-      life: 1000,
-    });
-  };
-
   const rowExpansionTemplate = (data) => {
     return (
       <div>
@@ -212,8 +188,6 @@ const ExpandableTable = ({ dataset }) => {
             value={matches}
             expandedRows={expandedRows}
             onRowToggle={(e) => setExpandedRows(e.data)}
-            onRowExpand={onRowExpand}
-            onRowCollapse={onRowCollapse}
             responsiveLayout="scroll"
             rowExpansionTemplate={rowExpansionTemplate}
             dataKey="_id"
