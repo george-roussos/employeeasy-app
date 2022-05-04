@@ -52,13 +52,6 @@ nav .logo-container {
   font-size: 1.1rem;
 }
 
-nav .account-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-}
-
 nav .menu-btn {
   background: none;
   color: rgb(255, 255, 255);
@@ -78,11 +71,14 @@ nav .logout-icon {
 
 nav .account-container {
   margin-top: 11rem;
+  margin-bottom: 2rem;
+  position: absolute;
   display: flex;
   align-items: center;
-  height: 6rem;
+  justify-content: center;
   gap: 1.4rem;
   margin-left: 1.5rem;
+  bottom: 0;
 }
 
 @media (max-width: 57em) {
