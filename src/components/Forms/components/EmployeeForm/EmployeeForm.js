@@ -84,9 +84,9 @@ const EmployeeForm = ({ employee, onClose }) => {
       } else {
         dispatch(editEmployee(values, employee._id));
       }
+      resetForm();
+      onClose();
     }
-    resetForm();
-    onClose();
   };
   return (
     <>
@@ -143,6 +143,7 @@ const EmployeeForm = ({ employee, onClose }) => {
               name="country"
               value={values.country}
               onChange={handleInputChange}
+              error={errors.country}
             />
             <Controls.Input
               name="avatar"

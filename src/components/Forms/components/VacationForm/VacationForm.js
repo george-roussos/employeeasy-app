@@ -76,9 +76,9 @@ const VacationForm = ({ vacation, onClose }) => {
         values.employee = vacation.employee._id;
         dispatch(editVacation(values, vacation._id));
       }
-    } else console.log("oops");
-    resetForm();
-    onClose();
+      resetForm();
+      onClose();
+    }
   };
   return (
     <>

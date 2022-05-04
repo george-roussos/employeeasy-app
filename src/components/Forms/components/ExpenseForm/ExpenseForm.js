@@ -74,9 +74,9 @@ const ExpenseForm = ({ expense, onClose }) => {
       } else {
         dispatch(editExpense(values, expense._id));
       }
-    } else console.log("oops");
-    resetForm();
-    onClose();
+      resetForm();
+      onClose();
+    }
   };
   return (
     <>
@@ -121,13 +121,14 @@ const ExpenseForm = ({ expense, onClose }) => {
               name="amount"
               value={values.amount}
               onChange={handleInputChange}
-              error={errors.phone}
+              error={errors.amount}
             />
             <Controls.Input
               label="Currency"
               name="currency"
               value={values.currency}
               onChange={handleInputChange}
+              error={errors.currency}
             />
             <Controls.Input
               name="employee"
