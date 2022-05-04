@@ -156,7 +156,7 @@
 
 @media (max-width: 57em) {
   .edit-modal {
-    width: 40rem;
+    width: 35rem;
     height: 50rem;
     border-radius: 1.2rem;
     background-color: #fff;
