@@ -1,12 +1,12 @@
 .edit-modal {
-  width: 700px;
-  height: 600px;
-  border-radius: 12px;
+  width: 70rem;
+  height: 60rem;
+  border-radius: 1.2rem;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 2.5rem;
   overflow: scroll;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .title {
-  font-size: 10px;
+  font-size: 1rem;
 }
 
 .titleCloseBtn {
@@ -35,7 +35,7 @@
 .titleCloseBtn button {
   background-color: transparent;
   border: none;
-  font-size: 25px;
+  font-size: 2.5rem;
   cursor: pointer;
 }
 
@@ -56,14 +56,14 @@
 }
 
 .modal .footer button {
-  width: 150px;
-  height: 45px;
-  margin: 10px;
+  width: 15rem;
+  height: 4.5rem;
+  margin: 1rem;
   border: none;
   background-color: cornflowerblue;
   color: white;
-  border-radius: 8px;
-  font-size: 20px;
+  border-radius: 0.8rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -75,8 +75,8 @@
   font-size: 1rem;
   font-weight: 600;
   padding: 0.4rem 0.5rem;
-  border-radius: 9px;
-  margin-right: 5px;
+  border-radius: 0.9rem;
+  margin-right: 0.5rem;
 
   /* Only necessary for .btn */
   border: none;
@@ -100,7 +100,7 @@
   font-size: 1rem;
   font-weight: 600;
   padding: 0.4rem 0.5rem;
-  border-radius: 9px;
+  border-radius: 0.9rem;
 
   /* Only necessary for .btn */
   border: none;
@@ -124,7 +124,7 @@
   font-size: 1rem;
   font-weight: 600;
   padding: 0.4rem 0.5rem;
-  border-radius: 9px;
+  border-radius: 0.9rem;
 
   /* Only necessary for .btn */
   border: none;
@@ -148,7 +148,7 @@
 }
 
 .edit-modal--overlay .title {
-  font-size: 12px;
+  font-size: 1.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
