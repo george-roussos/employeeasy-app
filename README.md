@@ -10,14 +10,16 @@ Employeeasy is a new web-app which streamlines managing of your employees, using
 Using the built-in dashboard, take a glance at your weekly overview, including your daily meetings and your average statistics.
 
 ## Demo
-A demo version of the application, which you can try out, is deployed [here](employeeasy.netlify.com). You can login using the following credentials:
 
-- username: *malinholmgren*
-- password: *12345*
+A demo version of the application, which you can try out, is deployed [here](https://employeeasy.netlify.com). You can login using the following credentials:
 
-You are also free to create your own personal account. After signing up, use the same credentials to log into the environment. In that case, note that: 
-* you should probably not use personal information when signing up, for security reasons
-* you will only be able to see employees in the database which are linked under other existing accounts
+- username: _malinholmgren_
+- password: _12345_
+
+You are also free to create your own personal account. After signing up, use the same credentials to log into the environment. In that case, note that:
+
+- you should probably not use personal information when signing up, for security reasons
+- you will only be able to see employees in the database which are linked under other existing accounts
 
 ## Live Walkthrough
 
@@ -25,11 +27,11 @@ You are also free to create your own personal account. After signing up, use the
 
 ## Local Run
 
-Clone this repo and run `npm i`. The frontend will work, but for security reasons I have not included the credentials to connect to the MongoDB instance, so you will have to contact me and I will gladly work it out for you.
+Clone this repo and run `npm i`. The app should work locally, since it points to a deployed version of the employeeasy server.
 
 ## Tech Stack
 
-Employeeasy is written on React (using Redux for state management), JS, HTML5 and CSS3.
+Employeeasy is written on React (using Redux and hooks for state management), HTML5 and CSS3.
 
 ## Screenshots
 
