@@ -21,6 +21,8 @@ You are also free to create your own personal account. After signing up, use the
 - you should probably not use personal information when signing up, for security reasons
 - you will only be able to see employees in the database which are linked under other existing accounts
 
+On successful login, the employeeasy server generates a web token with which authentication is performed. The token is saved in the browser's `localStorage()`, so if you close the tab, you will still be logged in. The token is set to expire after one hour and after that you have to re-log into the environment in order to be able to execute actions.
+
 ## Live Walkthrough
 
 ![live walkthrough](./src/images/employeeasy-screens/Walkthrough.gif)
