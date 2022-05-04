@@ -7,10 +7,6 @@ const vacationSlice = createSlice({
   name: "vacation",
   initialState,
   reducers: {
-    appendVacation(state, action) {
-      const content = action.payload;
-      state.push(content);
-    },
     setVacation(state, action) {
       const content = action.payload;
       return content;
@@ -18,7 +14,7 @@ const vacationSlice = createSlice({
   },
 });
 
-export const { appendVacation, setVacation } = vacationSlice.actions;
+export const { setVacation } = vacationSlice.actions;
 
 export const createVacation = (content) => {
   return async (dispatch) => {
@@ -31,14 +27,6 @@ export const createVacation = (content) => {
 export const editVacation = (content, id) => {
   return async (dispatch) => {
     await vacationService.editVacation(content, id);
-    const vacation = await vacationService.getAllVacation();
-    dispatch(setVacation(vacation));
-  };
-};
-
-export const removeVacation = (id) => {
-  return async (dispatch) => {
-    await vacationService.remove(id);
     const vacation = await vacationService.getAllVacation();
     dispatch(setVacation(vacation));
   };

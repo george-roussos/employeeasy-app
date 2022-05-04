@@ -1,6 +1,6 @@
 import "../ExpandableTable.css";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { showError, showSuccess } from "../../../helpers/tableHelper";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,20 +14,21 @@ import { InputText } from "primereact/inputtext";
 import { IoAddOutline } from "react-icons/io5";
 import { ProgressSpinner } from "primereact/progressspinner";
 import { Toast } from "primereact/toast";
-import { removeVacation } from "../../../reducers/vacationReducer";
 import { setEditMode } from "../../../reducers/modalReducer";
+import { setVacation } from "../../../reducers/vacationReducer";
+import vacationService from "../../../services/vacation";
 
 const ExpandableTable = ({ dataset }) => {
+  const toast = useRef(null);
+
   const dispatch = useDispatch();
   const [expandedRows, setExpandedRows] = useState(null);
-  const toast = useRef(null);
-  const isMounted = useRef(false);
   const [globalFilterValue, setGlobalFilterValue] = useState("");
   const [renderedDataset, setRenderedDataset] = useState([]);
   const [deleteModal, setDeleteModal] = useState(false);
   const [editVacationModal, setVacationModal] = useState(false);
   const [message, setMessage] = useState("");
-  const [vacation, setVacation] = useState({});
+  const [vacationEntry, setVacationEntry] = useState({});
 
   const editMode = useSelector((state) => state.modal);
 
@@ -44,12 +45,18 @@ const ExpandableTable = ({ dataset }) => {
 
   const handleDelete = async (event) => {
     event.preventDefault();
+    // This is not elegant, but is the easiest way to
+    // show the correct toast. It avoids re-rendering
+    // the toast while the table is updating and it
+    // only relies on the kind of response.
     try {
-      dispatch(removeVacation(vacation._id));
-      showSuccess();
-    } catch (exception) {
-      console.log(exception);
-      showError();
+      await vacationService.remove(vacationEntry._id);
+      const vacations = await vacationService.getAllVacation();
+      dispatch(setVacation(vacations));
+      showSuccess(toast, "Removed entry");
+    } catch (error) {
+      console.log(error);
+      showError(toast, "Unauthorized action");
     }
   };
 
@@ -117,36 +124,6 @@ const ExpandableTable = ({ dataset }) => {
     );
   };
 
-  useEffect(() => {
-    if (isMounted.current) {
-      const summary =
-        expandedRows !== null ? "All Rows Expanded" : "All Rows Collapsed";
-      toast.current.show({
-        severity: "success",
-        summary: `${summary}`,
-        life: 3000,
-      });
-    }
-  }, [expandedRows]);
-
-  const onRowExpand = (event) => {
-    toast.current.show({
-      severity: "info",
-      summary: "Showing vacation information:",
-      detail: event.data.employee.name,
-      life: 1000,
-    });
-  };
-
-  const onRowCollapse = (event) => {
-    toast.current.show({
-      severity: "success",
-      summary: "Hid vacation information",
-      detail: event.data.employee.name,
-      life: 1000,
-    });
-  };
-
   const rowExpansionTemplate = (data) => {
     return (
       <div>
@@ -167,7 +144,7 @@ const ExpandableTable = ({ dataset }) => {
             // Reset vacation so the form will re-render.
             // This way the form comes up empty after an edit
             // is abandoned.
-            setVacation({});
+            setVacationEntry({});
             setVacationModal(true);
             setMessage("New Vacation");
           }}
@@ -201,8 +178,6 @@ const ExpandableTable = ({ dataset }) => {
             value={matches}
             expandedRows={expandedRows}
             onRowToggle={(e) => setExpandedRows(e.data)}
-            onRowExpand={onRowExpand}
-            onRowCollapse={onRowCollapse}
             responsiveLayout="scroll"
             rowExpansionTemplate={rowExpansionTemplate}
             dataKey="_id"
@@ -244,7 +219,7 @@ const ExpandableTable = ({ dataset }) => {
                     icon="pi pi-user-edit"
                     className="mr-2"
                     onClick={() => {
-                      setVacation(props.props.value[props.rowIndex]);
+                      setVacationEntry(props.props.value[props.rowIndex]);
                       dispatch(setEditMode(true));
                       setMessage("Edit Vacation Information");
                       setVacationModal(true);
@@ -254,7 +229,7 @@ const ExpandableTable = ({ dataset }) => {
                     icon="pi pi-trash"
                     className="p-button-danger"
                     onClick={() => {
-                      setVacation(props.props.value[props.rowIndex]);
+                      setVacationEntry(props.props.value[props.rowIndex]);
                       setDeleteModal(true);
                     }}
                   />
@@ -285,7 +260,7 @@ const ExpandableTable = ({ dataset }) => {
               open={editVacationModal}
               message={message}
               editMode={editMode}
-              entry={vacation}
+              entry={vacationEntry}
               onClose={() => setVacationModal(false)}
               type={"vacation"}
             />
