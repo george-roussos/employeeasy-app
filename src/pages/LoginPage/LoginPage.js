@@ -1,16 +1,15 @@
 import "./LoginPage.css";
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { setPassword, setUser, setUsername } from "../../reducers/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 import Avatar from "@mui/material/Avatar";
 import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import LoadingBackdrop from "../../components/Backdrop/Backdrop";
+import LoadingIcons from "react-loading-icons";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Message from "../../components/Message/Message";
-import { Toast } from "primereact/toast";
 import employeeService from "../../services/employees";
 import loginPhoto from "../../images/login-vector.svg";
 import loginService from "../../services/login";
@@ -24,9 +23,7 @@ const LoginPage = () => {
 
   const [formUsername, setFormUsername] = useState(null);
   const [formPassword, setFormPassword] = useState(null);
-  const [backdrop, setBackdrop] = useState(false);
-
-  const toast = useRef(null);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -37,7 +34,7 @@ const LoginPage = () => {
 
     if (formUsername && formPassword) {
       try {
-        setBackdrop(true);
+        setLoading(true);
         const user = await loginService.login({
           username,
           password,
@@ -50,7 +47,7 @@ const LoginPage = () => {
         dispatch(setUser(user));
         dispatch(setUsername(user.username));
         dispatch(setPassword(""));
-        setBackdrop(false);
+        setLoading(false);
         navigate("/dashboard");
       } catch (exception) {
         dispatch(setNotification("Wrong username or password", 10));
@@ -64,7 +61,6 @@ const LoginPage = () => {
 
   return (
     <div className="login-form-container">
-      <Toast ref={toast} />
       <div className="login-form">
         <div className="form-decor">
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -103,9 +99,13 @@ const LoginPage = () => {
               />
             </div>
             <Message />
-            {backdrop && <LoadingBackdrop />}
             <button id="login-button" type="submit">
-              <IoPersonOutline /> SIGN IN
+              {loading ? (
+                <LoadingIcons.Circles width={"1.4rem"} height={"1.4rem"} />
+              ) : (
+                <IoPersonOutline />
+              )}
+              {loading ? "Signing in..." : "SIGN IN"}
             </button>
           </form>
           <Link
