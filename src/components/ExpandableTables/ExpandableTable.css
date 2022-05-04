@@ -88,6 +88,12 @@ table img {
   .p-inputtext {
     width: 9rem;
   }
+  .p-datatable .p-paginator .p-paginator-current {
+    font-size: 1.4rem !important;
+  }
+  .table-container {
+    margin-bottom: 5rem;
+  }
 }
 
 .p-toast {
