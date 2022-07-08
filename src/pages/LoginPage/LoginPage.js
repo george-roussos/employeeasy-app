@@ -105,7 +105,7 @@ const LoginPage = () => {
               ) : (
                 <IoPersonOutline />
               )}
-              {loading ? "Signing in..." : "SIGN IN"}
+              {loading ? "SIGNING IN..." : "SIGN IN"}
             </button>
           </form>
           <Link
