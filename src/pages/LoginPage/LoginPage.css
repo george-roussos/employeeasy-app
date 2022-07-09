@@ -93,3 +93,18 @@ input {
     padding: 3rem;
   }
 }
+
+.error-message-enter {
+  opacity: 0;
+}
+.error-message-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.error-message-exit {
+  opacity: 1;
+}
+.error-message-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}

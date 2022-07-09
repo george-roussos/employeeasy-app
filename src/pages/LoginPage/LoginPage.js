@@ -5,6 +5,7 @@ import { setPassword, setUser, setUsername } from "../../reducers/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 import Avatar from "@mui/material/Avatar";
+import { CSSTransition } from "react-transition-group";
 import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import LoadingIcons from "react-loading-icons";
@@ -20,6 +21,8 @@ import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const username = useSelector((state) => state.user.username);
   const password = useSelector((state) => state.user.password);
+
+  const message = useSelector((state) => state.message);
 
   const [formUsername, setFormUsername] = useState(null);
   const [formPassword, setFormPassword] = useState(null);
@@ -50,12 +53,13 @@ const LoginPage = () => {
         setLoading(false);
         navigate("/dashboard");
       } catch (exception) {
-        dispatch(setNotification("Wrong username or password", 10));
-        dispatch(setStyle("error", 10));
+        setLoading(false);
+        dispatch(setNotification("Wrong username or password", 3));
+        dispatch(setStyle("error", 3));
       }
     } else {
-      dispatch(setNotification("Please enter all required fields", 10));
-      dispatch(setStyle("error", 10));
+      dispatch(setNotification("Please enter all required fields", 3));
+      dispatch(setStyle("error", 3));
     }
   };
 
@@ -98,7 +102,14 @@ const LoginPage = () => {
                 }}
               />
             </div>
-            <Message />
+            <CSSTransition
+              in={message}
+              classNames="error-message"
+              unmountOnExit
+              timeout={200}
+            >
+              <Message />
+            </CSSTransition>
             <button id="login-button" type="submit">
               {loading ? (
                 <LoadingIcons.Circles width={"1.4rem"} height={"1.4rem"} />
