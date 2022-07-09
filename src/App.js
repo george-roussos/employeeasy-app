@@ -18,9 +18,6 @@ import { setUser } from "./reducers/userReducer";
 import { setVacation } from "./reducers/vacationReducer";
 import { useEffect } from "react";
 import vacationService from "./services/vacation";
-import { QueryClient, QueryClientProvider } from "react-query";
-
-const queryClient = new QueryClient();
 
 const App = () => {
   const user = useSelector((state) => state.user.user);
@@ -50,6 +47,7 @@ const App = () => {
         .getAllVacation()
         .then((vacation) => dispatch(setVacation(vacation)));
     } else return undefined;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   useEffect(() => {
@@ -57,49 +55,42 @@ const App = () => {
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON);
       dispatch(setUser(user));
-      console.log(user);
       employeeService.setToken(user.accessToken);
     }
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="app">
-        <BrowserRouter>
-          <NavBar handleLogout={handleLogOut} />
-          <Routes>
-            {user ? (
-              <Route path="/" element={<Dashboard user={user} />} />
-            ) : (
-              <Route path="/" element={<LoginPage />} />
-            )}
-            <Route path="/signup" element={<SignUp />} />
-            <Route
-              path="/login"
-              element={
-                <LoginPage
-                  user={user}
-                  username={username}
-                  password={password}
-                />
-              }
-            />
-            <Route path="/dashboard" element={<Dashboard user={user} />} />
-            <Route
-              path="/all-employees"
-              element={<AllEmployees dataset={employees} />}
-            />
-            <Route
-              path="/my-team"
-              element={<Team dataset={employees} user={user} />}
-            />
-            <Route path="/expenses" element={<Expenses dataset={expenses} />} />
-            <Route path="/vacation" element={<Vacation dataset={vacation} />} />
-            <Route path="/help-center" element={<Help />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </QueryClientProvider>
+    <div className="app">
+      <BrowserRouter>
+        <NavBar handleLogout={handleLogOut} />
+        <Routes>
+          {user ? (
+            <Route path="/" element={<Dashboard user={user} />} />
+          ) : (
+            <Route path="/" element={<LoginPage />} />
+          )}
+          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/login"
+            element={
+              <LoginPage user={user} username={username} password={password} />
+            }
+          />
+          <Route path="/dashboard" element={<Dashboard user={user} />} />
+          <Route
+            path="/all-employees"
+            element={<AllEmployees dataset={employees} />}
+          />
+          <Route
+            path="/my-team"
+            element={<Team dataset={employees} user={user} />}
+          />
+          <Route path="/expenses" element={<Expenses dataset={expenses} />} />
+          <Route path="/vacation" element={<Vacation dataset={vacation} />} />
+          <Route path="/help-center" element={<Help />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 };
 
