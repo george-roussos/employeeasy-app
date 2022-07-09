@@ -53,7 +53,11 @@ const EmployeeForm = ({ employee, onClose }) => {
     if ("avatar" in fieldValues)
       temp.avatar = fieldValues.avatar ? "" : "This field is required.";
     if ("email" in fieldValues)
-      temp.email = /$^|.+@.+..+/.test(fieldValues.email)
+      temp.email = !fieldValues.email
+        ? "This field is required"
+        : /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+            fieldValues.email
+          )
         ? ""
         : "Email is not valid.";
     if ("phone" in fieldValues)
